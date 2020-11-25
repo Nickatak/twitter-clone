@@ -9,7 +9,11 @@ from config import DevConfig
 db = SQLAlchemy()
 
 def create_app():
-    app = Flask(__name__, instance_relative_config=False, template_folder=DevConfig.TEMPLATE_DIR)
+    app = Flask(__name__,
+                instance_relative_config=False,
+                template_folder=DevConfig.TEMPLATE_DIR,
+                static_folder=str(DevConfig.STATIC_DIR)
+                )
     app.config.from_object('config.DevConfig')
 
     db.init_app(app)
