@@ -7,4 +7,4 @@ auth_bp = Blueprint('auth', __name__, url_prefix='/auth')
 def index():
     """Unauthorized user splash page."""
 
-    return render_template('base.html')
+    return render_template('auth/index.html')
