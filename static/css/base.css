@@ -1,0 +1,40 @@
+/* Styles for the unauthorized-user splash page (auth/index.html) */
+
+/*
+=============================================================================================
+Table of contents:
+    1. Global Styles.
+=============================================================================================
+*/
+
+/*
+=============================================================================================
+1. Global Styles.
+=============================================================================================
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-size: 14px;
+
+}
+
+.flex-wrapper {
+    display: flex;
+    min-height: 100%;
+    min-width: 100%;
+    /* Default is column, since I'll override this in the media queries at higher widths. */
+    flex-direction: column;
+    /* TODO: Remove this sanity-test after the pages are built. */
+    background-color: pink;
+}
+
+.flex-wrapper * {
+    display: flex;
+}

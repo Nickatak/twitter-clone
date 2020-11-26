@@ -1,0 +1,214 @@
+/* Styles for the unauthorized-user splash page (auth/index.html) */
+
+/*
+=============================================================================================
+Table of contents:
+    1. Global styles.
+    2. Call-to-action styles.
+    3. Splash-banner styles.
+    4. Action-buttons styles.
+    5. Footer-nav styles.
+    6. Media Queries.
+=============================================================================================
+*/
+
+/*
+=============================================================================================
+1. Global/Helper styles.
+=============================================================================================
+*/
+
+body {
+    line-height: 1.3125;
+    overflow-y: scroll;
+    overscroll-behavior-y: none;
+}
+
+.twitter-font {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+.vert-fill {
+    flex: 1;
+    background-color: white;
+    z-index: 1;
+}
+
+/*
+=============================================================================================
+2. Call-to-action styles.
+=============================================================================================
+*/
+
+.call-to-action {
+    justify-content: center;
+    padding: 15px;
+    /* TODO: Remove this once you're done building the page. */
+    background-color: white;
+    z-index: 1;
+}
+
+.call-to-action-content {
+    flex-direction: column;
+    max-width: 380px;
+}
+
+.call-to-action-header {
+    display: inline;
+    line-height: 1.3125;
+    margin-top: 18px;
+    font-size: 28px;
+    overflow-wrap: break-word;
+}
+
+.call-to-action-slogan {
+    margin-top: 60px;
+    margin-bottom: 15px;
+    font-size: 14px;
+
+}
+
+.button {
+    min-width: 62px;
+    min-height: 37px;
+    margin-bottom: 15px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.blue-background {
+    background-color: rgb(29, 161, 242);
+    color: white;
+    border: 1px solid transparent;
+}
+
+.transparent-background {
+    background-color: transparent;
+    color:  rgb(29, 161, 242);
+    border: 1px solid  rgb(29, 161, 242);
+}
+
+.bird-logo {
+    align-self: flex-start;
+    display: inline-block;
+    height: 2.75rem;
+    color: rgb(29, 161, 242);
+    fill: currentcolor;
+}
+
+/*
+=============================================================================================
+3. Splash-banner styles.
+=============================================================================================
+*/
+
+.splash-banner {
+    padding: 15px;
+    background-color: rgb(122, 204, 254);
+    justify-content: center;
+}
+
+.splash-banner .background-bird {
+    display: inline-block;
+    height: 60vh;
+    position: absolute;
+    top: 33vh;
+    right: -10vh;
+    color: rgb(29, 161, 242);
+    fill: currentcolor;
+}
+
+.splash-text {
+    z-index: 1;
+    padding: 15px 0;
+    color: white;
+}
+
+.bullet-points {
+    flex-direction: column;    
+}
+
+.point:nth-child(3) {
+    margin: 0;
+}
+
+.point {
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+.point-icon {
+    height: 1.25em;
+    font-size: 24px;
+    fill: currentcolor;
+}
+
+.point-text {
+    margin-left: 15px;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+/*
+=============================================================================================
+4. Action button styles.
+=============================================================================================
+*/
+
+.action-button-container {
+    z-index: 1;
+    padding: 40px 15px 30px 15px;
+    background-color: white;
+    justify-content: center;
+}
+
+.action-button-container .button {
+    max-width: 180px;
+    flex-grow: 1;
+}
+
+.action-button-container .button:first-child {
+    margin-right: 10px;
+}
+
+.action-button-container .button:nth-child(2) {
+    margin-left: 10px;
+}
+
+/*
+=============================================================================================
+5. Footer-nav styles.
+=============================================================================================
+*/
+
+.footer-nav {
+    z-index: 1;
+    background-color: white;
+    padding: 10px 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.footer-nav-link {
+    padding-right: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    font-size: 12px;
+    color: rgb(91, 112, 131);
+    cursor: pointer;
+    overflow-wrap: break-word;
+    margin: 5px 0;
+    text-decoration: none;
+}
+
+/*
+=============================================================================================
+6. TODO: Build media queries.
+=============================================================================================
+*/
