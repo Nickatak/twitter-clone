@@ -212,3 +212,10 @@ body {
 6. TODO: Build media queries.
 =============================================================================================
 */
+
+@media only screen and (min-width: 343px) {
+    /* background-bird correction for call-to-action-header resizing. */
+    .splash-banner .background-bird {
+        top: 28vh;
+    }
+}
