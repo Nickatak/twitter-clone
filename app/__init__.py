@@ -8,13 +8,13 @@ from config import DevConfig
 #r = FlaskRedis()
 db = SQLAlchemy()
 
-def create_app():
+def create_app(conf_obj=DevConfig):
     app = Flask(__name__,
                 instance_relative_config=False,
                 template_folder=DevConfig.TEMPLATE_DIR,
                 static_folder=str(DevConfig.STATIC_DIR)
                 )
-    app.config.from_object('config.DevConfig')
+    app.config.from_object(conf_obj)
 
     db.init_app(app)
     # r.init_app(app)
@@ -25,6 +25,8 @@ def create_app():
     app.register_blueprint(auth.auth_bp)
 
     with app.app_context():
+        if app.config['TESTING']:
+            db.drop_all()
         #Create all models.
         db.create_all()
 
