@@ -10,3 +10,6 @@ class DevConfig(object):
     STATIC_DIR = BASE_DIR.joinpath('static')
     TEMPLATE_DIR = BASE_DIR.joinpath('templates')
 
+class TestConfig(DevConfig):
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///{}'.format(BASE_DIR.joinpath('testing.sqlite3'))
