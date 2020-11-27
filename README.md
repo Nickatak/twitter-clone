@@ -30,7 +30,8 @@ I've seen a lot of twitter/facebook/etc. clones on various learning websites.  M
 The project serves to:
 * Provide practice for me/others who wish to contribute.
 * Provide insight as to difficulties when transitioning technologies (EG: using templates at first, and then switching to React).
-* Provide a relatively small/midsized code base for other beginners to look at/modify/question/contribute.
+* Provide a relatively small/midsized code base for other people to look at/modify/question/contribute.
+* Provide an easy way for people who are scared of breaking things to start contributing (to something that noone depends upon).
 
 Every major version ("build") will be released so people can look at past revisions of/decisions about the code base.  Ofcourse, this is a relatively small/private project, so I don't expect it to garner that much attention, but it should be pretty fun. 
 
