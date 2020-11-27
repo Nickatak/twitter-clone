@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).parent
@@ -9,6 +10,7 @@ class DevConfig(object):
 
     STATIC_DIR = BASE_DIR.joinpath('static')
     TEMPLATE_DIR = BASE_DIR.joinpath('templates')
+    SECRET_KEY = os.urandom(24)
 
 class TestConfig(DevConfig):
     TESTING = True
