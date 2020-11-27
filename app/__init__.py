@@ -25,8 +25,10 @@ def create_app(conf_obj=DevConfig):
 
     # Register blueprints.
     from app import auth
+    from app import twitter
 
     app.register_blueprint(auth.auth_bp)
+    app.register_blueprint(twitter.twitter_bp)
 
     with app.app_context():
         if app.config['TESTING']:
