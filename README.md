@@ -77,7 +77,6 @@ This is an example of how to list things you need to use the software and how to
   * Python3
 
 
-<!-- CONTRIBUTING -->
 ## Contributing
 
 Join in the fun and contribute.  This is a non-serious project, so don't be afraid to break something (although I'll try my best not to let that happen by reviewing your changes before merging, of course).
@@ -89,17 +88,6 @@ Join in the fun and contribute.  This is a non-serious project, so don't be afra
 5. Open a Pull Request
 
 
-
-<!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Distributed under the MIT License. See `LICENSE.txt` for more information.
