@@ -10,7 +10,6 @@ def assign_uid():
     else:
         g.uid = None
 
-
 @twitter_bp.route('/home')
 def dashboard():
     """Twitter Clone Dashboard.

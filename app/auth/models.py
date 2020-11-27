@@ -38,7 +38,6 @@ class User(db.Model):
 
         return None
 
-
     @classmethod
     def create(cls, name, username, email, password):
         new_user = cls(name=name,
@@ -51,5 +50,3 @@ class User(db.Model):
         db.session.commit()
 
         return new_user
-
-
