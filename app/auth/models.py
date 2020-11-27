@@ -21,7 +21,7 @@ class User(db.Model):
     password = db.Column(db.String(256))
 
     @classmethod
-    def authorize(cls, username, password):
+    def authenticate(cls, username, password):
         """Helper function to authorize a user given a username/password combination.
             :username: Attempted username.
             :password: Attempted password.
@@ -37,7 +37,6 @@ class User(db.Model):
             return attempted_user
 
         return None
-
 
 
 
