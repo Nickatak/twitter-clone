@@ -8,14 +8,14 @@ from app.auth.models import User
 auth_bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 def do_login(user):
-    """Helper function to log a user in by setting the primary key (`id`) of a user in a session.
+    """Helper function to log a user in by setting the primary key (`id`) of a user in a session.  Having this separated will be useful if we ever want to send alerts on login or something like that.
         :user: app.auth.models.User instance, so we can grab the primary key and set it into session.
     """
 
     session['uid'] = user.id
 
 def do_logout():
-    """Helper function to logout a user by clearing all session keys."""
+    """Helper function to logout a user by clearing all session keys.  Having this separated will be useful if we ever want to send alerts on login or something like that."""
 
     session.clear()
 
@@ -34,7 +34,6 @@ def login():
         user = User.authenticate(form.username.data, form.password.data)
         if user is not None:
             do_login(user)
-            # TODO: Add a redirect out to the dashboard page (NYI).
             return redirect(url_for('twitter.dashboard'))
         else:
             form.username.errors.append('The username and password you entered did not match our records. Please double-check and try again.')
@@ -43,9 +42,7 @@ def login():
 
 @auth_bp.route('/signup', methods=['GET', 'POST'])
 def signup():
-    """User signup page.
-        TODO: Build backend handler for user registration.
-    """
+    """User signup page."""
 
     form = RegistrationForm()
 
@@ -58,6 +55,7 @@ def signup():
         do_login(new_user)
 
         return redirect(url_for('twitter.dashboard'))
+
     return render_template('auth/signup.html', form=form)
 
 @auth_bp.route('/logout')
@@ -66,4 +64,3 @@ def logout():
 
     do_logout()
     return redirect(url_for('auth.index'))
-
