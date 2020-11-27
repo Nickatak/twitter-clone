@@ -25,73 +25,62 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+I've seen a lot of twitter/facebook/etc. clones on various learning websites.  Most of which seem pretty "complete" from a beginner standpoint, where they establish some kind of route-structure and slap on a rudimentary front-end to it, but are actually missing many implementation details.  In the middle of thinking about the aforementioned missing implementation details, I pondered how many details were actually missing and how difficult it would be to create a properly-accurate front-end (not just div-boxes with minimal styling/colors), and thus this project was born.
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+The project serves to:
+* Provide practice for me/others who wish to contribute.
+* Provide insight as to difficulties when transitioning technologies (EG: using templates at first, and then switching to React).
+* Provide a relatively small/midsized code base for other beginners to look at/modify/question/contribute.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
-
-### Built With
-
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
+Every major version ("build") will be released so people can look at past revisions of/decisions about the code base.  Ofcourse, this is a relatively small/private project, so I don't expect it to garner that much attention, but it should be pretty fun. 
 
 
+### Built With (current build)
 
-<!-- GETTING STARTED -->
+* Backend:
+  * [Python3](https://www.python.org/)
+  * [Flask](https://palletsprojects.com/p/flask/)
+  * [SQLAlchemy](https://www.sqlalchemy.org/)
+* Frontend:
+  * [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/)
+  * [WTForms](https://wtforms.readthedocs.io/en/2.3.x/)
+  * HTML5
+  * CSS
+  * Vanilla JS
+
+
+### Past builds
+
+* None yet.
+
+
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+1. Clone the repo.
+  ```
+  git clone https://github.com/Nickatak/twitter-clone
+  ```
+
+2. Install the dependencies.
+  ```
+  pip install -r requirements.txt
+  ```
+
+3. Run the server.
+  ```
+  flask run
+  ```
 
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```JS
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
+  * Python3
 
 
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Join in the fun and contribute.  This is a non-serious project, so don't be afraid to break something (although I'll try my best not to let that happen by reviewing your changes before merging, of course).
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
