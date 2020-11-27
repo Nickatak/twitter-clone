@@ -115,6 +115,7 @@ class TestHelpers(CleanTestingMixin):
 
     def test_model_pwd_hash(self, app):
         """Does our static method `User.create()` use bcrypt to hash the password?"""
+
         with app.app_context():
             user = User.query.first()
             assert user is not None
@@ -123,6 +124,7 @@ class TestHelpers(CleanTestingMixin):
 
     def test_model_authenticate(self, app):
         """Does our static method `User.authenticate()` retrieve an existing user given a correct username/PW combination?"""
+
         with app.app_context():
             user = User.query.first()
 
