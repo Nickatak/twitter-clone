@@ -24,7 +24,8 @@ def create_app():
 
     app.register_blueprint(auth.auth_bp)
 
-    #Create all models.
-    db.create_all()
+    with app.app_context():
+        #Create all models.
+        db.create_all()
 
     return app
