@@ -28,18 +28,18 @@ class RegistrationForm(FlaskForm):
 
     name = StringField('Name')
     username = StringField('Username')
-    email = StringField('Phone')
+    email = StringField('Email')
     password = PasswordField('Password')
 
     # This is a bit tricky, the DoB is separated into three select options.
-    MONTH_CHOICES = (
+    MONTH_CHOICES = [
         (num, calendar.month_name[num]) for num in range(1, 13)
-    )
+    ]
 
     # This will have to do for now.
-    DAY_CHOICES = (
+    DAY_CHOICES = [
         (num, num) for num in range(1, 32)
-    )
+    ]
 
     month = SelectField(choices=MONTH_CHOICES)
     day = SelectField(choices=DAY_CHOICES)
