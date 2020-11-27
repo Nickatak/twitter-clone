@@ -12,13 +12,11 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#testing">Testing</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
 
@@ -36,7 +34,7 @@ The project serves to:
 Every major version ("build") will be released so people can look at past revisions of/decisions about the code base.  Ofcourse, this is a relatively small/private project, so I don't expect it to garner that much attention, but it should be pretty fun. 
 
 
-### Built With (current build)
+### Built With
 
 * Backend:
   * Core:
@@ -79,6 +77,22 @@ Every major version ("build") will be released so people can look at past revisi
 This is an example of how to list things you need to use the software and how to install them.
   * Python3
 
+### Testing
+
+1. Clone the repo (if you haven't already).
+  ```
+  git clone https://github.com/Nickatak/twitter-clone
+  ```
+
+2. Install the dependencies (if you haven't already).
+  ```
+  pip install -r requirements.txt
+  ```
+
+3. Run pytest.
+  ```
+  pytest
+  ```
 
 ## Contributing
 
@@ -88,9 +102,11 @@ Join in the fun and contribute.  This is a non-serious project, so don't be afra
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+5. Write new tests for your new feature.
+6. Run tests (See: [testing](#Testing)) and make sure they all pass.
+7. Open a Pull Request
 
 
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the Apache License, version 2.0. See `LICENSE.txt` for more information.
