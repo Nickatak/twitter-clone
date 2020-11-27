@@ -49,6 +49,8 @@ Every major version ("build") will be released so people can look at past revisi
   * HTML5
   * CSS
   * Special note: There is NO JS in this build.
+* DevOps
+  * [Pytest](https://docs.pytest.org/en/stable/)
 
 ### Past builds
 
