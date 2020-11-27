@@ -1,7 +1,10 @@
-"""Custom User model."""
-from app import db
+"""Authentication models."""
+
+from app import bcrypt, db
+
 
 class User(db.Model):
+    """Custom User model."""
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
 
     # This is the "display name."
@@ -16,3 +19,27 @@ class User(db.Model):
 
     # ALthough things like SHA512 use 128 chars, and Bcrypt uses somewhere about 64 (max) chars depending upon implementation, I figured we'd be safer by just having a larger storage container for future hash implementations.
     password = db.Column(db.String(256))
+
+    @classmethod
+    def authorize(cls, username, password):
+        """Helper function to authorize a user given a username/password combination.
+            :username: Attempted username.
+            :password: Attempted password.
+        
+        returns:
+            User instance if the combination was valid.
+            NoneType if the combination was not valid.
+        """
+
+        attempted_user = cls.query.filter(cls.username == username).first()
+
+        if attempted_user is not None and bcrypt.check_password_hash(attempted_user.password, password):
+            return attempted_user
+
+        return None
+
+
+
+
+
+
