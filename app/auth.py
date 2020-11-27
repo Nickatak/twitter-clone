@@ -16,6 +16,7 @@ def login():
     return render_template('auth/login.html')
 
 @auth_bp.route('/signup')
+def signup():
     """User signup page.
         TODO: Build backend handler for user registration.
     """
