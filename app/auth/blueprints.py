@@ -1,7 +1,7 @@
 """Auth routes."""
 from flask import Blueprint, redirect, render_template, session, url_for
 
-from app.auth.forms import LoginForm
+from app.auth.forms import LoginForm, RegistrationForm
 from app.auth.models import User
 
 # TODO: Remove the url_prefix after we're done making all the routes.
@@ -19,7 +19,6 @@ def do_logout():
 
     session.clear()
 
-
 @auth_bp.route('/')
 def index():
     """Unauthorized user splash page."""
@@ -29,28 +28,42 @@ def index():
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
     """User login page."""
+
     form = LoginForm()
     if form.validate_on_submit():
         user = User.authenticate(form.username.data, form.password.data)
         if user is not None:
             do_login(user)
             # TODO: Add a redirect out to the dashboard page (NYI).
-            return redirect('/')
+            return redirect(url_for('twitter.dashboard'))
         else:
             form.username.errors.append('The username and password you entered did not match our records. Please double-check and try again.')
 
     return render_template('auth/login.html', form=form)
 
-@auth_bp.route('/signup')
+@auth_bp.route('/signup', methods=['GET', 'POST'])
 def signup():
     """User signup page.
         TODO: Build backend handler for user registration.
     """
 
-    return render_template('auth/signup.html')
+    form = RegistrationForm()
+
+    if form.validate_on_submit():
+        new_user = User.create(form.name.data,
+                           form.username.data, 
+                           form.email.data,
+                           form.password.data,
+                           )
+        do_login(new_user)
+
+        return redirect(url_for('twitter.dashboard'))
+    return render_template('auth/signup.html', form=form)
 
 @auth_bp.route('/logout')
 def logout():
+    """User logout route."""
+
     do_logout()
     return redirect(url_for('auth.index'))
 
