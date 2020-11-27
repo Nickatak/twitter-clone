@@ -1,0 +1,125 @@
+/* Styles for the unauthorized-user registration page (auth/signup.html) */
+
+/*
+=============================================================================================
+Table of contents:
+    1. Global/Helper styles.
+    2. Signup form styles.
+=============================================================================================
+*/
+
+/*
+=============================================================================================
+1. Global/Helper styles.
+=============================================================================================
+*/
+
+body {
+    overflow-y: scroll;
+}
+
+.flex-wrapper {
+    flex-direction: row;
+    justify-content: center;
+}
+
+.twitter-text {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.3125;
+}
+
+.error {
+    margin: 0;
+    font-size: 15px;
+    color: rgb(224, 36, 94);
+}
+
+
+/*
+=============================================================================================
+2. Signup form styles.
+=============================================================================================
+*/
+
+.form-container {
+    margin-top: 20px;
+    padding: 0 15px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+}
+
+.bird-logo {
+    display: inline-block;
+    height: 40px;
+    color: rgb(29, 161, 242);
+    fill: currentcolor;
+}
+
+.form-header {
+    font-size: 24px;
+    margin: 30px 0 10px 0;
+}
+
+#signup-form {
+    flex-direction: column;
+    width: 100%;
+}
+
+.input-group {
+    width: 100%;
+    padding: 10px 15px;
+    min-height: 79px;
+    font-size: 20px;
+}
+
+.input-group div {
+    background-color: rgb(247, 249, 250);
+    flex-direction: column;
+    width: 100%;
+    border-bottom: 2px solid rgb(91, 112, 131);
+}
+
+.input-group div label {
+    color: rgb(91, 112, 131);
+    font-size: 15px;
+    padding: 5px 10px 0 10px;
+}
+
+.input-group div input {
+    font-size: 22px;
+    padding: 2px 10px 5px 10px;
+    background-color: transparent;
+    border: none;
+}
+
+.input-group div select {
+    font-size: 22px;
+    padding: 2px 10px 5px 10px;
+    background-color: transparent;
+    border: none;
+}
+.input-group div input:focus {
+    outline: none;
+    background-color: rgb(232, 240, 254);
+}
+
+.button {
+    min-width: 62px;
+    min-height: 49px;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.blue-background {
+    background-color: rgb(29, 161, 242);
+    color: white;
+    border: 1px solid transparent;
+}
