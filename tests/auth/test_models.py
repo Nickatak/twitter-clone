@@ -1,10 +1,14 @@
 """Tests for app.auth.models.User class."""
 import pytest
 
-from app import db
+from app import db, bcrypt
 from app.auth.models import User
+from tests.conftest import CleanTestingMixin
 
-class TestExistence:
+
+
+class TestExistence(CleanTestingMixin):
+    
     def test_model_exists(self):
         """Does our model exist?"""
 
@@ -29,7 +33,7 @@ class TestExistence:
             assert extracted_user.username == 'Test'
             assert extracted_user.email == 'test@test.com'
 
-class TestFields:
+class TestFields(CleanTestingMixin):
 
     @pytest.fixture()
     def columns(self):
@@ -90,5 +94,57 @@ class TestFields:
         assert isinstance(column.type, db.String)
         assert column.type.length == 256
 
-class TestHelpers:
-    pass
+class TestHelpers(CleanTestingMixin):
+
+    def test_model_create(self, app):
+        """Does our static method `User.create()` store information in the DB?"""
+
+        with app.app_context():
+            new_user = User.create(name='tester',
+                                username='testing',
+                                email='testing@testing.com',
+                                password='Qweqweqwe123'
+            )
+            user = User.query.first()
+
+            assert user is not None
+            assert user.name == 'tester'
+            assert user.username == 'testing'
+            assert user.email == 'testing@testing.com'
+            assert user.password != 'Qweqweqwe123'
+
+    def test_model_pwd_hash(self, app):
+        """Does our static method `User.create()` use bcrypt to hash the password?"""
+        with app.app_context():
+            user = User.query.first()
+            assert user is not None
+            # This is the current bcrypt algorithm signature (Dec. 2020)
+            assert user.password[0:4] == '$2b$'
+
+    def test_model_authenticate(self, app):
+        """Does our static method `User.authenticate()` retrieve an existing user given a correct username/PW combination?"""
+        with app.app_context():
+            user = User.query.first()
+
+            att_user = User.authenticate('testing', 'Qweqweqwe123')
+
+            assert att_user is not None
+            assert user.id == att_user.id
+            assert user.username == att_user.username
+            assert user.password == att_user.password
+
+    def test_model_unauth(self, app):
+        """Does our static method `User.authenticate()` fail properly (return a NoneType) when given an incorrect username/PW combination?"""
+
+        with app.app_context():
+            #Non existent username:
+            att_user = User.authenticate('asdf', 'asdf')
+            assert att_user is None
+
+            #Existing username but bad password:
+            att_user = User.authenticate('testing', 'asdf')
+            assert att_user is None
+
+            #Correct password but non existing username:
+            att_user = User.authenticate('asdf', 'Qweqweqwe123')
+            assert att_user is None
