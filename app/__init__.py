@@ -4,7 +4,7 @@ from config import DevConfig
 # from flask_redis import FlaskRedis
 
 
-# package-globals
+# Package-globals.
 #r = FlaskRedis()
 db = SQLAlchemy()
 
@@ -19,11 +19,12 @@ def create_app():
     db.init_app(app)
     # r.init_app(app)
 
-    # Register blueprints
+    # Register blueprints.
     from app import auth
 
     app.register_blueprint(auth.auth_bp)
+
+    #Create all models.
+    db.create_all()
+
     return app
-
-
-
