@@ -1,5 +1,5 @@
 """Auth routes."""
-from flask import Blueprint, render_template, session
+from flask import Blueprint, redirect, render_template, session, url_for
 
 from app.auth.forms import LoginForm
 from app.auth.models import User
@@ -48,3 +48,9 @@ def signup():
     """
 
     return render_template('auth/signup.html')
+
+@auth_bp.route('/logout')
+def logout():
+    do_logout()
+    return redirect(url_for('auth.index'))
+
