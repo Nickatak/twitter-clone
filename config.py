@@ -4,7 +4,7 @@ BASE_DIR = Path(__file__).parent
 
 class DevConfig(object):
     # It's very unfortunate that you can't enable development-mode without setting Env variables.
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///blah.sqlite3'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///{}'.format(BASE_DIR.joinpath('blah.sqlite3'))
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     STATIC_DIR = BASE_DIR.joinpath('static')
