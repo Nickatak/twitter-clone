@@ -39,9 +39,12 @@ Every major version ("build") will be released so people can look at past revisi
 ### Built With (current build)
 
 * Backend:
-  * [Python3](https://www.python.org/)
-  * [Flask](https://palletsprojects.com/p/flask/)
-  * [SQLAlchemy](https://www.sqlalchemy.org/)
+  * Core:
+    * [Python3](https://www.python.org/)
+    * [Flask](https://palletsprojects.com/p/flask/)
+  * Database:
+    * [SQLAlchemy](https://www.sqlalchemy.org/)
+    * [SQLite3](https://www.sqlite.org/index.html)
 * Frontend:
   * [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/)
   * [WTForms](https://wtforms.readthedocs.io/en/2.3.x/)
