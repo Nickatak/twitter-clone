@@ -1,12 +1,16 @@
 from flask import Flask
+from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
+
 from config import DevConfig
+
 # from flask_redis import FlaskRedis
 
 
 # Package-globals.
 #r = FlaskRedis()
 db = SQLAlchemy()
+bcrypt = Bcrypt()
 
 def create_app(conf_obj=DevConfig):
     app = Flask(__name__,
