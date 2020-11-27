@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 <!-- TODO: Implement JS to handle the input-background change based on contents inside of it instead of just on-focus. -->
 
-{% block title %}asdf{% endblock%}
+{% block title %}Log on Twitter / Twitter{% endblock%}
 
 {% block header %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/auth/login.css') }}">
@@ -18,14 +18,12 @@
                     <label for="username_or_email" class="twitter-text">Phone, email, or username</label>
                     <input type="text" name="username_or_email">
                 </div>
-
             </div>
             <div class="input-group">
                 <div>
                     <label for="password" class="twitter-text">Password</label>
                     <input type="password" name="password">
                 </div>
-
             </div>
             <button type="submit" class="button blue-background twitter-text">Log in</button>
         </form>
