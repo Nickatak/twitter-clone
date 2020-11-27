@@ -11,6 +11,13 @@ def index():
 
 @auth_bp.route('/login')
 def login():
-    """Unauthorized user login page."""
+    """User login page."""
 
     return render_template('auth/login.html')
+
+@auth_bp.route('/signup')
+    """User signup page.
+        TODO: Build backend handler for user registration.
+    """
+
+    return render_template('auth/signup.html')
