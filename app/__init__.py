@@ -20,8 +20,11 @@ def create_app(conf_obj=DevConfig):
                 )
     app.config.from_object(conf_obj)
 
-    db.init_app(app)
+    # Initialize application context to "globals".
     # r.init_app(app)
+    db.init_app(app)
+    bcrypt.init_app(app)
+
 
     # Register blueprints.
     from app import auth
