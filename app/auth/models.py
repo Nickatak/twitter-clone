@@ -39,6 +39,17 @@ class User(db.Model):
         return None
 
 
+    @classmethod
+    def create(cls, name, username, email, password):
+        new_user = cls(name=name,
+                        username=username,
+                        email=email
+                        )
+        new_user.password = bcrypt.generate_password_hash(password).decode('utf-8')
 
+        db.session.add(new_user)
+        db.session.commit()
+
+        return new_user
 
 
