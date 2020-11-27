@@ -16,7 +16,6 @@ class TestExistence:
         with app.app_context():
             new_user = User(
                 username='Test',
-                phone='1231231234',
                 email='test@test.com',
                 password='',
             )
@@ -28,7 +27,6 @@ class TestExistence:
 
             assert extracted_user is not None
             assert extracted_user.username == 'Test'
-            assert extracted_user.phone == '1231231234'
             assert extracted_user.email == 'test@test.com'
 
 class TestFields:
@@ -61,8 +59,9 @@ class TestFields:
         assert column.type.length == 15
         assert column.unique
 
+    """
     def test_model_phone(self, columns, column_keys):
-        """Does our model have our specified `phone` field?"""
+        \"\"\"Does our model have our specified `phone` field?\"\"\"
 
         column = columns[column_keys.index('phone')]
 
@@ -70,6 +69,7 @@ class TestFields:
         assert isinstance(column.type, db.String)
         assert column.type.length == 30
         assert column.unique
+    """
 
     def test_model_email(self, columns, column_keys):
         """Does our model have our specified `email` field?"""
@@ -89,3 +89,6 @@ class TestFields:
         assert 'password' in column_keys
         assert isinstance(column.type, db.String)
         assert column.type.length == 256
+
+class TestHelpers:
+    pass
