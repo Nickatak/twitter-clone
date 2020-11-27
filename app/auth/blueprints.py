@@ -1,3 +1,4 @@
+"""Auth routes."""
 from flask import Blueprint, render_template
 
 # TODO: Remove the url_prefix after we're done making all the routes.
