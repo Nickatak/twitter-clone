@@ -50,8 +50,7 @@ Every major version ("build") will be released so people can look at past revisi
   * [WTForms](https://wtforms.readthedocs.io/en/2.3.x/)
   * HTML5
   * CSS
-  * Vanilla JS
-
+  * Special note: There is NO JS in this build.
 
 ### Past builds
 
