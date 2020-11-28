@@ -1,5 +1,5 @@
 """Validators to be used in WTForms for the auth application.
-    Validator names are written to be conformant with existing wtforms.valiator.ValidatorFunctions.
+    Validator names are written to be conformant with existing `wtforms.valiator.ValidatorFunctions`.
 """
 from wtforms.validators import DataRequired, Email, Length, Regexp, ValidationError, StopValidation
 
@@ -7,7 +7,7 @@ from app.auth.models import User
 
 def NoSpecialChars():
     """Validator to make sure @, +, ., and spaces aren't in the supplied field's data.
-        This is basically a renamed wrapper around wtforms.validators.Regexp().
+        This is basically a renamed wrapper around `wtforms.validators.Regexp()`.
 
         TODO: Clean this up and use real regex.
     """
@@ -32,7 +32,7 @@ def Unique():
 
 def EmailIsValid():
     """Validator to make sure email is valid.
-        This is a wrapper around wtforms.validators.Email(), but it raises a StopValidation so that way we prevent unnecessary queries to our DB.
+        This is a wrapper around `wtforms.validators.Email()`, but it raises a StopValidation so that way we prevent unnecessary queries to our DB.
     """
 
     def _(form, field):
