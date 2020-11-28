@@ -38,10 +38,14 @@ class TestFields(CleanTestingMixin):
 
     @pytest.fixture()
     def columns(self):
+        """All columns on the `User` table."""
+
         return list(User.__table__.columns)
 
     @pytest.fixture()
     def column_keys(self, columns):
+        """All keys for the columns on the `User` table."""
+
         return list(map(lambda c: c.key, columns))
 
     def test_model_id(self, columns, column_keys):
