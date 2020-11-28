@@ -1,7 +1,7 @@
 """Validators to be used in WTForms for the auth application.
     Validator names are written to be conformant with existing wtforms.valiator.ValidatorFunctions.
 """
-from wtforms.validators import DataRequired, Length, Regexp, ValidationError
+from wtforms.validators import DataRequired, Email, Length, Regexp, ValidationError, StopValidation
 
 from app.auth.models import User
 
@@ -25,7 +25,9 @@ def Unique():
 
     def _(form, field):
         field_model_column = getattr(User.__table__.columns, field.name)
-        if User.query.filter(field_model_column == field.data):
-            raise ValidationError('{} must be unique.'.format(field.label.text))
+        if User.query.filter(field_model_column == field.data).scalar() is not None:
+            raise StopValidation('{} must be unique.'.format(field.label.text))
     
     return _
+
+
