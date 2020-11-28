@@ -55,6 +55,7 @@ Every major version ("build") will be released so people can look at past revisi
   * [Coverage](https://coverage.readthedocs.io/en/coverage-5.3/)
   * [Flake8](https://flake8.pycqa.org/en/latest/)
   * [Autopep8](https://github.com/hhatto/autopep8)
+  * [Pycodestyle - pep8](https://github.com/PyCQA/pycodestyle)
 * DevOps/Integration
   * None yet.
 
@@ -129,7 +130,7 @@ Join in the fun and contribute.  This is a non-serious project, so don't be afra
 4. Push to the Branch (`git push origin feature/AmazingFeature`).
 5. Write new tests for your new feature.
 6. Run tests (See: [testing](#Testing)) and make sure they all pass.
-7. Run flake8 to make sure your code is PEP8 compliant/linted (`flake8`).
+7. Run flake8/pycodestyle to make sure your code is PEP8 compliant/linted (`flake8`/`pycodestyle`).
 7. Open a Pull Request.
 
 
