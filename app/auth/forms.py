@@ -5,7 +5,7 @@ import datetime
 from flask_wtf import FlaskForm
 from wtforms import PasswordField, SelectField, StringField
 
-from app.auth.validators import DataRequired
+from app.auth.validators import DataRequired, Length, NoSpecialChars, Unique
 
 class LoginForm(FlaskForm):
     """Login form for our User."""
@@ -31,9 +31,9 @@ class RegistrationForm(FlaskForm):
         ]
 
 
-    name = StringField('Name', validators=[DataRequired()])
-    username = StringField('Username', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired()])
+    name = StringField('Name', validators=[DataRequired(), Length(max=50)])
+    username = StringField('Username', validators=[DataRequired(), Length(max=15), NoSpecialChars(), Unique()])
+    email = StringField('Email', validators=[DataRequired(), Length(max=100), Unique()])
     password = PasswordField('Password', validators=[DataRequired()])
 
     # This is a bit tricky, the DoB is separated into three select options.
@@ -46,7 +46,7 @@ class RegistrationForm(FlaskForm):
         (num, num) for num in range(1, 32)
     ]
 
-    month = SelectField(choices=MONTH_CHOICES)
-    day = SelectField(choices=DAY_CHOICES)
+    month = SelectField(choices=MONTH_CHOICES, validators=[DataRequired()])
+    day = SelectField(choices=DAY_CHOICES, validators=[DataRequired()])
     # See: __init__()
-    year = SelectField()
+    year = SelectField(validators=[DataRequired()])
