@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from flask import url_for
 import pytest
 
-from app import db, bcrypt
+from app import db
 from app.auth.models import User
 from app.auth.forms import RegistrationForm
 from tests.conftest import CleanTestingMixin
@@ -162,8 +162,8 @@ class TestRouteBehavior(CleanTestingMixin):
     def test_after_reg_signin(self, app, client, valid_data):
         """Does our route sign us in after being given valid data via a POST request?"""
 
-        resp = client.post(type(self).SIGNUP_URL,
-                           data=valid_data, follow_redirects=True)
+        client.post(type(self).SIGNUP_URL,
+                    data=valid_data, follow_redirects=True)
 
         with app.app_context():
             user = User.query.first()
