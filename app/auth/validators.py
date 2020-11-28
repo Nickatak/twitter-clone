@@ -5,7 +5,7 @@
 """
 import re
 
-from wtforms.validators import DataRequired, Email, Length, Regexp, ValidationError, StopValidation
+from wtforms.validators import Email, ValidationError, StopValidation
 
 from app.auth.models import User
 

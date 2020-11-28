@@ -4,8 +4,9 @@ import datetime
 
 from flask_wtf import FlaskForm
 from wtforms import PasswordField, SelectField, StringField
+from wtforms.validators import DataRequired, Length
 
-from app.auth.validators import DataRequired, EmailIsValid, Length, NoSpecialChars, Unique
+from app.auth.validators import EmailIsValid, NoSpecialChars, Unique
 
 
 class LoginForm(FlaskForm):
