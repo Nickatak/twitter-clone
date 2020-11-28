@@ -8,7 +8,8 @@ from tests.conftest import CleanTestingMixin
 
 
 class TestExistence(CleanTestingMixin):
-    
+    """Test the existence of our `User` class."""    
+
     def test_model_exists(self):
         """Does our model exist?"""
 
@@ -34,6 +35,7 @@ class TestExistence(CleanTestingMixin):
             assert extracted_user.email == 'test@test.com'
 
 class TestFields(CleanTestingMixin):
+    """Test the fields on the `User` class."""
 
     @pytest.fixture()
     def columns(self):
@@ -95,6 +97,7 @@ class TestFields(CleanTestingMixin):
         assert column.type.length == 256
 
 class TestHelpers(CleanTestingMixin):
+    """Test the helper methods for the `User` class."""
 
     def test_model_create(self, app):
         """Does our static method `User.create()` store information in the DB?"""
