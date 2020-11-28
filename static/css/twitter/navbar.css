@@ -1,0 +1,56 @@
+/* Styles for the Navbar component. */
+
+/*
+=============================================================================================
+Table of contents:
+    1. Global/Helper styles.
+    2. Navbar styles.
+=============================================================================================
+*/
+
+/*
+=============================================================================================
+1. Global/Helper styles.
+=============================================================================================
+*/
+
+.flex-wrapper {
+    flex-direction: row;
+}
+
+/*
+=============================================================================================
+2. Navbar styles.
+=============================================================================================
+*/
+
+#navbar-wrapper {
+    min-height: 100%;
+    flex-direction: column;
+    background-color: white;
+    border-right: 1px solid	rgb(243, 244, 246);
+
+    /* Revisit this idea when the main content is put in.
+    flex-grow: 1;
+    max-width: 200px;
+    */
+}
+
+#navbar-list {
+    flex-direction:column;
+}
+
+.icon-container {
+    min-width: 49px;
+    min-height: 49px;
+}
+.twitter-bird {
+    display: inline-block;
+    color: rgb(29,161,242);
+    fill: currentColor;
+}
+
+.twitter-bird svg {
+    height: 2rem;
+    width: 1.5rem;
+}
