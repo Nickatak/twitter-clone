@@ -11,7 +11,7 @@ class LoginForm(FlaskForm):
     """Login form for our User."""
 
     username = StringField('Phone, email, or username', validators=[DataRequired(message='Username is required.')])
-    password = StringField('Password', validators=[DataRequired(message='Password is required.')])
+    password = PasswordField('Password', validators=[DataRequired(message='Password is required.')])
 
 class RegistrationForm(FlaskForm):
     """Registration form for our User."""
