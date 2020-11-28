@@ -5,7 +5,7 @@ from app.auth.forms import LoginForm, RegistrationForm
 from app.auth.models import User
 
 # TODO: Remove the url_prefix after we're done making all the routes.
-auth_bp = Blueprint('auth', __name__, url_prefix='/auth')
+auth_bp = Blueprint('auth', __name__, url_prefix='/')
 
 
 def do_login(user):
