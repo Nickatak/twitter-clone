@@ -6,7 +6,6 @@ from app.auth.models import User
 from tests.conftest import CleanTestingMixin
 
 
-
 class TestExistence(CleanTestingMixin):
     """Test the existence of our `User` class."""    
 
