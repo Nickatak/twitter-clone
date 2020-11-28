@@ -10,8 +10,8 @@ from app.auth.validators import DataRequired, EmailIsValid, Length, NoSpecialCha
 class LoginForm(FlaskForm):
     """Login form for our User."""
 
-    username = StringField('Phone, email, or username', validators=[DataRequired()])
-    password = StringField('Password', validators=[DataRequired()])
+    username = StringField('Phone, email, or username', validators=[DataRequired(message='Username is required.')])
+    password = StringField('Password', validators=[DataRequired(message='Password is required.')])
 
 class RegistrationForm(FlaskForm):
     """Registration form for our User."""
@@ -41,11 +41,12 @@ class RegistrationForm(FlaskForm):
         (num, num) for num in range(1, 32)
     ]
 
-    name = StringField('Name', validators=[DataRequired(), Length(max=50)])
-    username = StringField('Username', validators=[DataRequired(), Length(max=15), NoSpecialChars(), Unique()])
-    email = StringField('Email', validators=[DataRequired(), Length(max=100), EmailIsValid(), Unique()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    month = SelectField('Month', choices=MONTH_CHOICES, validators=[DataRequired()])
-    day = SelectField('Day', choices=DAY_CHOICES, validators=[DataRequired()])
+    # The first validator in our validators[] should be `DataRequired()`.
+    name = StringField('Name', validators=[DataRequired(message='Name is required.'), Length(max=50, message='Name cannot be longer than 50 characters.')])
+    username = StringField('Username', validators=[DataRequired(message='Username is required.'), Length(max=15, message='Username cannot be longer than 15 characters.'), NoSpecialChars(), Unique()])
+    email = StringField('Email', validators=[DataRequired(message='Email is required.'), Length(max=100, message='Email cannot be longer than 100 characters.'), EmailIsValid(), Unique()])
+    password = PasswordField('Password', validators=[DataRequired(message='Password is required.')])
+    month = SelectField('Month', choices=MONTH_CHOICES, validators=[DataRequired(message='Month is required.')])
+    day = SelectField('Day', choices=DAY_CHOICES, validators=[DataRequired(message='Day is required.')])
     # See: __init__()
-    year = SelectField('Year', validators=[DataRequired()])
+    year = SelectField('Year', validators=[DataRequired(message='Year is required.')])
