@@ -81,7 +81,7 @@ Every major version ("build") will be released so people can look at past revisi
 ### Prerequisites
 
 You need the following programs/utilities/etc.:
-  * Python3
+  * Python3 (>= 3.8.0)
 
 ### Testing
 
