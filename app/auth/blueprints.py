@@ -58,9 +58,11 @@ def signup():
 
     return render_template('auth/signup.html', form=form)
 
-@auth_bp.route('/logout')
+@auth_bp.route('/logout', methods=['POST'])
 def logout():
     """User logout route."""
 
     do_logout()
+    print(session)
+    print('-' * 50)
     return redirect(url_for('auth.index'))
