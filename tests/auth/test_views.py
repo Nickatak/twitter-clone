@@ -172,3 +172,663 @@ class TestSignup(CleanTestingMixin):
             with client.session_transaction() as session:
                 assert 'uid' in session
                 assert session['uid'] == user.id
+
+    def test_fail_omit_name(self, client, form):
+        """Does our route fail if we omit the `name` on the field?"""
+
+        invalid_data = {
+            'username' : 'tester',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1, #January 1st, 2000.
+            'day' : 1,
+            'year' : 2000, 
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        # The first element in our validators will always be `DataRequired()`
+        assert errors[0].decode_contents() == form.name.validators[0].message
+
+    def test_fail_omit_username(self, client, form):
+        """Does our route fail if we omit the `username` on the field?"""
+
+        invalid_data = {
+            'name' : 'test',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1, #January 1st, 2000.
+            'day' : 1,
+            'year' : 2000, 
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        # The first element in our validators will always be `DataRequired()`
+        assert errors[0].decode_contents() == form.username.validators[0].message
+
+    def test_fail_omit_email(self, client, form):
+        """Does our route fail if we omit the `email` on the field?"""
+
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'tester',
+            'password' : 'Qweqweqwe123',
+            'month' : 1, #January 1st, 2000.
+            'day' : 1,
+            'year' : 2000, 
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        # The first element in our validators will always be `DataRequired()`
+        assert errors[0].decode_contents() == form.email.validators[0].message
+
+    def test_fail_omit_password(self, client, form):
+        """Does our route fail if we omit the `password` on the field?"""
+
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'tester',
+            'email' : 'test@test.com',
+            'month' : 1, #January 1st, 2000.
+            'day' : 1,
+            'year' : 2000, 
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        # The first element in our validators will always be `DataRequired()`
+        assert errors[0].decode_contents() == form.password.validators[0].message
+
+    def test_fail_omit_month(self, client, form):
+        """Does our route fail if we omit the `month` on the field?"""
+
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'tester',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'day' : 1,
+            'year' : 2000, 
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        # The first element in our validators will always be `DataRequired()`
+        assert errors[0].decode_contents() == form.month.validators[0].message
+
+    def test_fail_omit_day(self, client, form):
+        """Does our route fail if we omit the `day` on the field?"""
+
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'tester',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'year' : 2000, 
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        # The first element in our validators will always be `DataRequired()`
+        assert errors[0].decode_contents() == form.day.validators[0].message
+
+    def test_fail_omit_year(self, client, form):
+        """Does our route fail if we omit the `year` on the field?"""
+
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'tester',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        # The first element in our validators will always be `DataRequired()`
+        assert errors[0].decode_contents() == form.year.validators[0].message
+
+    def test_fail_invalid_name(self, client):
+        """Does our route fail if we send invalid data for the `name` field?
+            1. Too long (> 50 chars).
+        """
+
+        # 1. Too long (> 50 chars).
+        invalid_data = {
+            'name' : 'a' * 51,
+            'username' : 'tester',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Name cannot be longer than 50 characters.'
+
+    def test_fail_invalid_username(self, client):
+        """Does our route fail if we send invalid data for the `username` field?
+            1. Too long (> 15 chars).
+            2. @
+            3. #
+            4. (spaces)
+            5. *
+            6. !
+            7. ?
+            8. '
+            9. "
+            10. -
+            11. /
+            12. \\
+            13. =
+            14. +
+            15. %
+            16. $
+            17. (
+            18. <
+            19. .
+        
+        """
+
+        # Too long (> 15 chars).
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'a' * 16,
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Username cannot be longer than 15 characters.'
+
+        # 2. Special Char (@).
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'test@test',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Must be letters (uppercase or lowercase), digits, and underscores only.'
+
+        # 3. Special Char (#).
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'test#test',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Must be letters (uppercase or lowercase), digits, and underscores only.'
+
+        # 4. Spaces ( ).
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'test test',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Must be letters (uppercase or lowercase), digits, and underscores only.'
+
+        # 5. Asterisks (*).
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'test*test',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Must be letters (uppercase or lowercase), digits, and underscores only.'
+
+        # 6. Exclamation marks (!).
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'test!test',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Must be letters (uppercase or lowercase), digits, and underscores only.'
+
+        # 7. Question marks (?).
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'test?test',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Must be letters (uppercase or lowercase), digits, and underscores only.'
+
+        # 8. Quotation marks (').
+        invalid_data = {
+            'name' : 'test test',
+            'username' : "test'test",
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Must be letters (uppercase or lowercase), digits, and underscores only.'
+
+        # 9. Double-Quotation marks (").
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'test"test',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Must be letters (uppercase or lowercase), digits, and underscores only.'
+
+        # 10. Dashes (-).
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'test-test',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Must be letters (uppercase or lowercase), digits, and underscores only.'
+
+        # 11. Slashes (/).
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'test/test',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Must be letters (uppercase or lowercase), digits, and underscores only.'
+
+        # 12. Backslashes (\).
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'test\\test',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Must be letters (uppercase or lowercase), digits, and underscores only.'
+
+        # 13. Equals (=).
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'test=test',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Must be letters (uppercase or lowercase), digits, and underscores only.'
+
+        # 14. Plus (+).
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'test+test',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Must be letters (uppercase or lowercase), digits, and underscores only.'
+
+        # Carat (^).
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'test^test',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Must be letters (uppercase or lowercase), digits, and underscores only.'
+
+        # 15. Percentage (%).
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'test%test',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Must be letters (uppercase or lowercase), digits, and underscores only.'
+
+        # 16. Dollar Sign ($).
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'test%test',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Must be letters (uppercase or lowercase), digits, and underscores only.'
+
+        # 17. Parenthesis-Open (().
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'test(test',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Must be letters (uppercase or lowercase), digits, and underscores only.'
+
+        # 18. Less-than (<).
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'test<test',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Must be letters (uppercase or lowercase), digits, and underscores only.'
+
+        # 19. Period (.).
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'test.test',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Must be letters (uppercase or lowercase), digits, and underscores only.'
+
+    def test_fail_invalid_email(self, client):
+        """Does our route fail if we send invalid data for the `email` field?
+            1. Too long (> 100 chars).
+            2. Missing @ sign.
+            3. Missing domain.
+            4. Missing front.
+        """
+
+        # 1. Too long (> 100 chars).
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'tester',
+            'email' : 'a' * 101,
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 2
+        assert errors[0].decode_contents() == 'Email cannot be longer than 100 characters.'
+        assert errors[1].decode_contents() == 'Email must be valid.'
+
+        # 2. Missing @ sign.
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'tester',
+            'email' : 'testest.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Email must be valid.'
+
+        # 3. Missing domain.
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'tester',
+            'email' : 'test@test',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Email must be valid.'
+
+        # 2. Missing front.
+        invalid_data = {
+            'name' : 'test test',
+            'username' : 'tester',
+            'email' : '@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1,
+            'day' : 1,
+            'year' : 2020,
+        }
+
+        resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+        html = BeautifulSoup(resp.data, 'html.parser')
+
+        errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+        assert len(errors) == 1
+        assert errors[0].decode_contents() == 'Email must be valid.'
