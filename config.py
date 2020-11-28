@@ -16,3 +16,4 @@ class TestConfig(DevConfig):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = 'sqlite:///{}'.format(BASE_DIR.joinpath('testing.sqlite3'))
     WTF_CSRF_ENABLED = False
+    SERVER_NAME = 'localhost.localdomain:5000'
