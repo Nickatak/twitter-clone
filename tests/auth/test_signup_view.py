@@ -1,4 +1,4 @@
-"""Tests for the routes inside `app.auth.blueprints`.
+"""Tests for the `signup()` route inside `app.auth.blueprints`.
     This is currently testing with BeautifulSoup4.  Later on we'll use a proper web-driver like Selenium to do FE-testing.
 
     TODO: Implement proper front-end testing.
@@ -14,7 +14,7 @@ from tests.conftest import CleanTestingMixin
 
 
 class TestSignup(CleanTestingMixin):
-    """Test our signup route"""
+    """Test our signup route."""
 
     # TODO: Change this when we remove the `/auth/` prefix from our auth application.
     SIGNUP_URL = '/auth/signup'
