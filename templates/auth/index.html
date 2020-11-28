@@ -14,8 +14,8 @@
             <span class="call-to-action-header twitter-font">See what’s happening in the world right now</span>
             <span class="call-to-action-slogan twitter-font">Join Twitter today.</span>
 
-            <a href="#" class="button twitter-font blue-background"><span>Sign up</span></a>
-            <a href="#" class="button twitter-font transparent-background"><span>Log in</span></a>
+            <a href="{{ url_for('auth.signup') }}" class="button twitter-font blue-background"><span>Sign up</span></a>
+            <a href="{{ url_for('auth.login') }}" class="button twitter-font transparent-background"><span>Log in</span></a>
         </div>
     </div>
     <div class="splash-banner">
@@ -38,8 +38,8 @@
         </div>
     </div>
     <div class="action-button-container">
-        <a href="#" class="button twitter-font blue-background"><span>Sign up</span></a>
-        <a href="#" class="button twitter-font transparent-background"><span>Log in</span></a>
+        <a href="{{ url_for('auth.signup') }}" class="button twitter-font blue-background"><span>Sign up</span></a>
+        <a href="{{ url_for('auth.login') }}" class="button twitter-font transparent-background"><span>Log in</span></a>
     </div>
     <nav class="footer-nav">
         <a href="#" class="footer-nav-link"><span>About</span></a>
