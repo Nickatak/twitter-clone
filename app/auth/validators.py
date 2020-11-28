@@ -1,5 +1,7 @@
 """Validators to be used in WTForms for the auth application.
     Validator names are written to be conformant with existing `wtforms.valiator.ValidatorFunctions`.
+
+    TODO: Convert these to classes so we can use `.message` or something in the tests.
 """
 import re
 
