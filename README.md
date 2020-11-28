@@ -49,8 +49,9 @@ Every major version ("build") will be released so people can look at past revisi
   * HTML5
   * CSS
   * Special note: There is NO JS in this build.
-* DevOps
+* DevOps/Testing
   * [Pytest](https://docs.pytest.org/en/stable/)
+  * [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 
 ### Past builds
 
