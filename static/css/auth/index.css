@@ -29,12 +29,6 @@ body {
     font-weight: 700;
 }
 
-.vert-fill {
-    flex: 1;
-    background-color: white;
-    z-index: 1;
-}
-
 /*
 =============================================================================================
 2. Call-to-action styles.
