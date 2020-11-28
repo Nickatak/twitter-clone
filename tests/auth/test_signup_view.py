@@ -13,7 +13,7 @@ from app.auth.forms import RegistrationForm
 from tests.conftest import CleanTestingMixin
 
 
-class TestSignup(CleanTestingMixin):
+class TestRouteBehavior(CleanTestingMixin):
     """Test our signup route."""
 
     # TODO: Change this when we remove the `/auth/` prefix from our auth application.
@@ -156,6 +156,44 @@ class TestSignup(CleanTestingMixin):
             with client.session_transaction() as session:
                 assert 'uid' in session
                 assert session['uid'] == user.id
+
+
+class TestFormBehavior(CleanTestingMixin):
+
+    # TODO: Change this when we remove the `/auth/` prefix from our auth application.
+    SIGNUP_URL = '/auth/signup'
+
+    @pytest.fixture
+    def form(self, app):
+        """Our RegistrationForm instance."""
+
+        with app.app_context():
+            return RegistrationForm()
+
+    @pytest.fixture
+    def valid_data(self):
+        """Reusable valid-data dictionary."""
+
+        return {
+            'name' : 'test test',
+            'username' : 'tester',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1, #January 1st, 2000.
+            'day' : 1,
+            'year' : 2000, 
+        }
+
+    @pytest.fixture(autouse=True)
+    def run_after_every_test(self, app):
+        """Delete all the users in the DB after every test.
+            Special Note: Does NOT DROP the tables.
+        """
+        yield
+
+        with app.app_context():
+            User.query.delete()
+            db.session.commit()
 
     def test_fail_omit_name(self, client, form):
         """Does our route fail if we omit the `name` on the field?"""
