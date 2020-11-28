@@ -3,7 +3,8 @@ __pycache__/
 *.sqlite3
 
 # testing
-/coverage
+.coverage
+htmlcov/
 
 # production
 /build
