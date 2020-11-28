@@ -73,7 +73,7 @@ class TestSignup(CleanTestingMixin):
 
         assert html.find('form') is not None
 
-    def test_route_inputs(self, app, client, form):
+    def test_route_inputs(self, client, form):
         """Does our route return a page that has the required inputs on it when we send a GET?"""
 
         resp = client.get(type(self).SIGNUP_URL)
