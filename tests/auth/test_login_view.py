@@ -74,6 +74,8 @@ class TestRouteBehavior(CleanTestingMixin):
         resp = client.get(type(self).LOGIN_URL)
         html = BeautifulSoup(resp.data, 'html.parser')
 
+        assert html.find('form') is not None
+
     def test_route_inputs(self, app, client, form):
         """Does our route return a page that has the required inputs on it when we send a GET?"""
 
@@ -105,8 +107,8 @@ class TestRouteBehavior(CleanTestingMixin):
                         password=valid_data['password'],
                         )
 
-            resp = client.post(type(self).LOGIN_URL,
-                               data=valid_data, follow_redirects=True)
+            client.post(type(self).LOGIN_URL,
+                        data=valid_data, follow_redirects=True)
             user = User.query.first()
 
             with client.session_transaction() as session:
