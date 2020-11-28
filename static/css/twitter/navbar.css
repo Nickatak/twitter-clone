@@ -29,7 +29,8 @@ Table of contents:
     flex-direction: column;
     background-color: white;
     border-right: 1px solid	rgb(243, 244, 246);
-
+    width: 68px;
+    align-items: center;
     /* Revisit this idea when the main content is put in.
     flex-grow: 1;
     max-width: 200px;
@@ -37,20 +38,30 @@ Table of contents:
 }
 
 #navbar-list {
+    margin: 0;
+    padding: 0;
     flex-direction:column;
+}
+
+#navbar-list li {
+    padding: 3px 0;
 }
 
 .icon-container {
     min-width: 49px;
-    min-height: 49px;
+    min-height: 53px;
+    padding: 2px 0;
+    justify-content: center;
+    align-items: center;
 }
+
 .twitter-bird {
-    display: inline-block;
     color: rgb(29,161,242);
     fill: currentColor;
 }
 
 .twitter-bird svg {
+    flex-grow: 1;
     height: 2rem;
     width: 1.5rem;
 }
