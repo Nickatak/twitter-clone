@@ -1,10 +1,11 @@
 <!-- Placeholder template. -->
+{% extends 'twitter/navbar.html' %}
 
-{% block title %}PLACEHOLDER TEMPLATE{% endblock %}
-
-{% block content %}
-    <div>DASHBOARD PAGE</div>
+{% block header %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/twitter/dashboard.css') }}">
 {% endblock %}
 
-
-
+{% block content %}
+    {{ super() }}
+{% endblock %}
