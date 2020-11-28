@@ -1,1 +1,1 @@
-from app.twitter.blueprints import *
+from app.twitter.blueprints import * # noqa

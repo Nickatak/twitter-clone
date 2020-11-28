@@ -1,5 +1,4 @@
 from flask import Blueprint, g, render_template, redirect, session, url_for
-from app.auth.models import User
 
 twitter_bp = Blueprint('twitter', __name__)
 
