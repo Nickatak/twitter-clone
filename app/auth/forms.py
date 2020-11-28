@@ -5,7 +5,7 @@ import datetime
 from flask_wtf import FlaskForm
 from wtforms import PasswordField, SelectField, StringField
 
-from app.auth.validators import DataRequired, Length, NoSpecialChars, Unique
+from app.auth.validators import DataRequired, EmailIsValid, Length, NoSpecialChars, Unique
 
 class LoginForm(FlaskForm):
     """Login form for our User."""
@@ -33,7 +33,7 @@ class RegistrationForm(FlaskForm):
 
     name = StringField('Name', validators=[DataRequired(), Length(max=50)])
     username = StringField('Username', validators=[DataRequired(), Length(max=15), NoSpecialChars(), Unique()])
-    email = StringField('Email', validators=[DataRequired(), Length(max=100), Unique()])
+    email = StringField('Email', validators=[DataRequired(), Length(max=100), EmailIsValid(), Unique()])
     password = PasswordField('Password', validators=[DataRequired()])
 
     # This is a bit tricky, the DoB is separated into three select options.
