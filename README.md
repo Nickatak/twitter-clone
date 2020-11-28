@@ -23,7 +23,7 @@
 
 ## About The Project
 
-I've seen a lot of twitter/facebook/etc. clones on various learning websites.  Most of which seem pretty "complete" from a beginner standpoint, where they establish some kind of route-structure and slap on a rudimentary front-end to it, but are actually missing many implementation details.  In the middle of thinking about the aforementioned missing implementation details, I pondered how many details were actually missing and how difficult it would be to create a properly-accurate front-end (not just div-boxes with minimal styling/colors), and thus this project was born.
+I've seen a lot of twitter/facebook/etc. clones on various learning websites.  Most of which seem pretty "complete" from a beginner standpoint, where they establish some kind of route-structure and slap on a rudimentary front-end to it, but are missing many implementation details.  In the middle of thinking about the aforementioned missing implementation details, I pondered how many details were missing and how difficult it would be to create a properly-accurate front-end (not just div-boxes with minimal styling/colors) and back-end (maybe something cool that's Dockerized/uses appropriate data-storage methods), and thus this project was born.
 
 The project serves to:
 * Provide practice for me/others who wish to contribute.
