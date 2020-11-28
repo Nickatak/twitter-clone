@@ -35,11 +35,11 @@ class TestRouteBehavior(CleanTestingMixin):
         """Does the route properly clear our `uid` key out of session?"""
 
         with app.test_request_context():
-            new_user = User.create(name=valid_data['name'],
-                                   username=valid_data['username'],
-                                   email=valid_data['email'],
-                                   password=valid_data['password'],
-                                   )
+            User.create(name=valid_data['name'],
+                        username=valid_data['username'],
+                        email=valid_data['email'],
+                        password=valid_data['password'],
+                        )
 
             # I see. So you can't send requests with the
             # `session_transaction()` open.  You have to close it first, then
