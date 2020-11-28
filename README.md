@@ -49,12 +49,14 @@ Every major version ("build") will be released so people can look at past revisi
   * HTML5
   * CSS
   * Special note: There is NO JS in this build.
-* DevOps/Testing
+* Testing/Linting
   * [Pytest](https://docs.pytest.org/en/stable/)
   * [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
   * [Coverage](https://coverage.readthedocs.io/en/coverage-5.3/)
   * [Flake8](https://flake8.pycqa.org/en/latest/)
   * [Autopep8](https://github.com/hhatto/autopep8)
+* DevOps/Integration
+  * None yet.
 
 ### Past builds
 
