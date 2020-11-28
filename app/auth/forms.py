@@ -16,10 +16,14 @@ class RegistrationForm(FlaskForm):
     """Registration form for our User."""
 
     def __init__(self):
+        """Creates a new RegistrationForm instance.
+            The reason why we're overriding this is to provide dynamic creation of choices for our `year` select tag.
+        """
         super().__init__()
         # Sets the year choices dynamically, so I don't have to update this every year.
         oldest_year = 1900
         current_year = datetime.date.today().year
+
         # This cannot be a tuple, as we want to force Python to evaluate the generator expression (otherwise WTForms will have problems rendering the field).
         self.year.choices = [
             (num, num) for num in range(current_year, oldest_year - 1, -1)
@@ -45,9 +49,3 @@ class RegistrationForm(FlaskForm):
     day = SelectField(choices=DAY_CHOICES)
     # See: __init__()
     year = SelectField()
-
-
-
-
-
-
