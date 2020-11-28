@@ -1,4 +1,4 @@
-"""Tests for app.auth.models.User class."""
+"""Tests for `app.auth.models.User` class."""
 import pytest
 
 from app import db, bcrypt
