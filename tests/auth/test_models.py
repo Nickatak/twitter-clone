@@ -1,7 +1,7 @@
 """Tests for `app.auth.models.User` class."""
 import pytest
 
-from app import db, bcrypt
+from app import db
 from app.auth.models import User
 from tests.conftest import CleanTestingMixin
 
@@ -91,7 +91,7 @@ class TestFields(CleanTestingMixin):
         assert column.type.length == 100
         assert column.unique
 
-    def test_model_email(self, columns, column_keys):
+    def test_model_password(self, columns, column_keys):
         """Does our model have our specified `password` field?"""
 
         column = columns[column_keys.index('password')]
@@ -108,11 +108,11 @@ class TestHelpers(CleanTestingMixin):
         """Does our static method `User.create()` store information in the DB?"""
 
         with app.app_context():
-            new_user = User.create(name='tester',
-                                   username='testing',
-                                   email='testing@testing.com',
-                                   password='Qweqweqwe123'
-                                   )
+            User.create(name='tester',
+                        username='testing',
+                        email='testing@testing.com',
+                        password='Qweqweqwe123'
+                        )
             user = User.query.first()
 
             assert user is not None
