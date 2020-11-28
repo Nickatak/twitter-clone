@@ -53,6 +53,8 @@ Every major version ("build") will be released so people can look at past revisi
   * [Pytest](https://docs.pytest.org/en/stable/)
   * [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
   * [Coverage](https://coverage.readthedocs.io/en/coverage-5.3/)
+  * [Flake8](https://flake8.pycqa.org/en/latest/)
+  * [Autopep8](https://github.com/hhatto/autopep8)
 
 ### Past builds
 
@@ -125,7 +127,7 @@ Join in the fun and contribute.  This is a non-serious project, so don't be afra
 4. Push to the Branch (`git push origin feature/AmazingFeature`).
 5. Write new tests for your new feature.
 6. Run tests (See: [testing](#Testing)) and make sure they all pass.
-7. Run flake8/pycodestyle to make sure you're PEP8 compliant (`flake8` OR `pycodestyle .`).
+7. Run flake8 to make sure your code is PEP8 compliant/linted (`flake8`).
 7. Open a Pull Request.
 
 
