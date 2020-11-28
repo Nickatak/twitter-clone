@@ -832,3 +832,79 @@ class TestSignup(CleanTestingMixin):
 
         assert len(errors) == 1
         assert errors[0].decode_contents() == 'Email must be valid.'
+
+    def test_fail_username_unique(self, app, client):
+        """Does our route fail if we send already-existing data for the `username` field?"""
+
+        valid_data = {
+            'name' : 'test test',
+            'username' : 'tester',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1, #January 1st, 2000.
+            'day' : 1,
+            'year' : 2000, 
+        }
+
+        with app.app_context():
+            assert len(User.query.all()) == 0
+            resp = client.post(type(self).SIGNUP_URL, data=valid_data, follow_redirects=True)
+            assert resp.status_code == 200
+            assert len(User.query.all()) == 1
+
+            # Same username, different email
+            invalid_data = {
+                'name' : 'test test',
+                'username' : 'tester',
+                'email' : 'asdf@test.com',
+                'password' : 'Qweqweqwe123',
+                'month' : 1, #January 1st, 2000.
+                'day' : 1,
+                'year' : 2000, 
+            }
+
+            resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+            html = BeautifulSoup(resp.data, 'html.parser')
+
+            errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+            assert len(errors) == 1
+            assert errors[0].decode_contents() == 'Username must be unique.'
+
+    def test_fail_email_unique(self, app, client):
+        """Does our route fail if we send already-existing data for the `email` field?"""
+
+        valid_data = {
+            'name' : 'test test',
+            'username' : 'tester',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1, #January 1st, 2000.
+            'day' : 1,
+            'year' : 2000, 
+        }
+
+        with app.app_context():
+            assert len(User.query.all()) == 0
+            resp = client.post(type(self).SIGNUP_URL, data=valid_data, follow_redirects=True)
+            assert resp.status_code == 200
+            assert len(User.query.all()) == 1
+
+            # Same email, different username
+            invalid_data = {
+                'name' : 'test test',
+                'username' : 'asdf',
+                'email' : 'test@test.com',
+                'password' : 'Qweqweqwe123',
+                'month' : 1, #January 1st, 2000.
+                'day' : 1,
+                'year' : 2000, 
+            }
+
+            resp = client.post(type(self).SIGNUP_URL, data=invalid_data, follow_redirects=True)
+            html = BeautifulSoup(resp.data, 'html.parser')
+
+            errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+            assert len(errors) == 1
+            assert errors[0].decode_contents() == 'Email must be unique.'
