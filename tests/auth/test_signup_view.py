@@ -158,7 +158,7 @@ class TestRouteBehavior(CleanTestingMixin):
                 assert session['uid'] == user.id
 
 
-class TestFormBehavior(CleanTestingMixin):
+class TestFormValidationBehavior(CleanTestingMixin):
     """Test our RegistrationForm's behavior."""
 
     # TODO: Change this when we remove the `/auth/` prefix from our auth application.
