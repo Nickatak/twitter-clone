@@ -26,6 +26,20 @@ class TestSignup(CleanTestingMixin):
         with app.app_context():
             return RegistrationForm()
 
+    @pytest.fixture
+    def valid_data(self):
+        """Reusable valid-data dictionary."""
+
+        return {
+            'name' : 'test test',
+            'username' : 'tester',
+            'email' : 'test@test.com',
+            'password' : 'Qweqweqwe123',
+            'month' : 1, #January 1st, 2000.
+            'day' : 1,
+            'year' : 2000, 
+        }
+
     @pytest.fixture(autouse=True)
     def run_after_every_test(self, app):
         """Delete all the users in the DB after every test.
@@ -111,18 +125,8 @@ class TestSignup(CleanTestingMixin):
         assert len(tuple(ele.children))
         assert ele.parent.find('label').decode_contents() == form.year.label.text
 
-    def test_route_creates_user(self, app, client):
+    def test_route_creates_user(self, app, client, valid_data):
         """Does our route create a user given valid data via a POST request?"""
-
-        valid_data = {
-            'name' : 'test test',
-            'username' : 'tester',
-            'email' : 'test@test.com',
-            'password' : 'Qweqweqwe123',
-            'month' : 1, #January 1st, 2000.
-            'day' : 1,
-            'year' : 2000, 
-        }
 
         with app.app_context():
             assert len(User.query.all()) == 0
@@ -131,18 +135,8 @@ class TestSignup(CleanTestingMixin):
             assert resp.status_code == 200
             assert len(User.query.all()) == 1
 
-    def test_route_redirects(self, app, client):
+    def test_route_redirects(self, app, client, valid_data):
         """Does our route return a redirect to our dashboard route after being given valid data via a POST request?"""
-
-        valid_data = {
-            'name' : 'test test',
-            'username' : 'tester',
-            'email' : 'test@test.com',
-            'password' : 'Qweqweqwe123',
-            'month' : 1, #January 1st, 2000.
-            'day' : 1,
-            'year' : 2000, 
-        }
 
         resp = client.post(type(self).SIGNUP_URL, data=valid_data, follow_redirects=False)
 
@@ -152,18 +146,8 @@ class TestSignup(CleanTestingMixin):
             assert 'Location' in headers
             assert headers['Location'] == url_for('twitter.dashboard')
 
-    def test_after_reg_signin(self, app, client):
+    def test_after_reg_signin(self, app, client, valid_data):
         """Does our route sign us in after being given valid data via a POST request?"""
-
-        valid_data = {
-            'name' : 'test test',
-            'username' : 'tester',
-            'email' : 'test@test.com',
-            'password' : 'Qweqweqwe123',
-            'month' : 1, #January 1st, 2000.
-            'day' : 1,
-            'year' : 2000, 
-        }
 
         resp = client.post(type(self).SIGNUP_URL, data=valid_data, follow_redirects=True)
 
@@ -833,18 +817,8 @@ class TestSignup(CleanTestingMixin):
         assert len(errors) == 1
         assert errors[0].decode_contents() == 'Email must be valid.'
 
-    def test_fail_username_unique(self, app, client):
+    def test_fail_username_unique(self, app, client, valid_data):
         """Does our route fail if we send already-existing data for the `username` field?"""
-
-        valid_data = {
-            'name' : 'test test',
-            'username' : 'tester',
-            'email' : 'test@test.com',
-            'password' : 'Qweqweqwe123',
-            'month' : 1, #January 1st, 2000.
-            'day' : 1,
-            'year' : 2000, 
-        }
 
         with app.app_context():
             User.create(name=valid_data['name'],
@@ -872,18 +846,8 @@ class TestSignup(CleanTestingMixin):
             assert len(errors) == 1
             assert errors[0].decode_contents() == 'Username must be unique.'
 
-    def test_fail_email_unique(self, app, client):
+    def test_fail_email_unique(self, app, client, valid_data):
         """Does our route fail if we send already-existing data for the `email` field?"""
-
-        valid_data = {
-            'name' : 'test test',
-            'username' : 'tester',
-            'email' : 'test@test.com',
-            'password' : 'Qweqweqwe123',
-            'month' : 1, #January 1st, 2000.
-            'day' : 1,
-            'year' : 2000, 
-        }
 
         with app.app_context():
             User.create(name=valid_data['name'],
