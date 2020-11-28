@@ -125,6 +125,7 @@ Join in the fun and contribute.  This is a non-serious project, so don't be afra
 4. Push to the Branch (`git push origin feature/AmazingFeature`).
 5. Write new tests for your new feature.
 6. Run tests (See: [testing](#Testing)) and make sure they all pass.
+7. Run flake8/pycodestyle to make sure you're PEP8 compliant (`flake8` OR `pycodestyle .`).
 7. Open a Pull Request.
 
 
