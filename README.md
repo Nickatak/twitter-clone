@@ -103,6 +103,11 @@ This is an example of how to list things you need to use the software and how to
   pytest
   ```
 
+  OPTIONAL: If you got errors and want to see which test are failing, try using the `-v` or `-vv` flags:
+  ```
+  pytest -vv
+  ```
+
 4. Generate coverage-report.
   ```
   coverage html
