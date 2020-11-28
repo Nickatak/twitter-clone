@@ -847,10 +847,11 @@ class TestSignup(CleanTestingMixin):
         }
 
         with app.app_context():
-            assert len(User.query.all()) == 0
-            resp = client.post(type(self).SIGNUP_URL, data=valid_data, follow_redirects=True)
-            assert resp.status_code == 200
-            assert len(User.query.all()) == 1
+            User.create(name=valid_data['name'],
+                        username=valid_data['username'],
+                        email=valid_data['email'],
+                        password=valid_data['password'],
+            )
 
             # Same username, different email
             invalid_data = {
@@ -885,10 +886,11 @@ class TestSignup(CleanTestingMixin):
         }
 
         with app.app_context():
-            assert len(User.query.all()) == 0
-            resp = client.post(type(self).SIGNUP_URL, data=valid_data, follow_redirects=True)
-            assert resp.status_code == 200
-            assert len(User.query.all()) == 1
+            User.create(name=valid_data['name'],
+                        username=valid_data['username'],
+                        email=valid_data['email'],
+                        password=valid_data['password'],
+            )
 
             # Same email, different username
             invalid_data = {
