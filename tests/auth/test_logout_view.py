@@ -1,4 +1,8 @@
-"""Tests for the `logout()` route inside `app.auth.blueprints`."""
+"""Tests for the `logout()` route inside `app.auth.blueprints`.
+    This is currently testing with BeautifulSoup4.
+
+    TODO: Implement proper front-end testing with Selenium.
+"""
 from flask import url_for
 import pytest
 

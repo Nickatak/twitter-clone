@@ -8,7 +8,7 @@ from config import DevConfig
 
 
 # Package-globals.
-#r = FlaskRedis()
+# r = FlaskRedis()
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 

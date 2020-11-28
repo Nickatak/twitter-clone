@@ -131,7 +131,7 @@ class TestHelpers(CleanTestingMixin):
             assert user.password[0:4] == '$2b$'
 
     def test_model_authenticate(self, app):
-        """Does our static method `User.authenticate()` retrieve an existing user given a correct username/PW combination?"""
+        """Does our static method `User.authenticate()` retrieve an existing user given a correct username/PW combo?"""
 
         with app.app_context():
             user = User.query.first()
@@ -144,7 +144,7 @@ class TestHelpers(CleanTestingMixin):
             assert user.password == att_user.password
 
     def test_model_unauth(self, app):
-        """Does our static method `User.authenticate()` fail properly (return a NoneType) when given an incorrect username/PW combination?"""
+        """Does our static method `User.authenticate()` fail properly when given an invalid username/PW combo?"""
 
         with app.app_context():
             # Non existent username:

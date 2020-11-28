@@ -35,7 +35,7 @@ def Unique():
 
 def EmailIsValid():
     """Validator to make sure email is valid.
-        This is a wrapper around `wtforms.validators.Email()`, but it raises a StopValidation so that way we prevent unnecessary queries to our DB.
+        This is a wrapper around `wtforms.validators.Email()`, but it raises a StopValidation exception.
     """
 
     def _(form, field):

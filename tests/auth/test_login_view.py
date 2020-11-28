@@ -1,7 +1,7 @@
 """Tests for the `login()` route inside `app.auth.blueprints`.
-    This is currently testing with BeautifulSoup4.  Later on we'll use a proper web-driver like Selenium to do FE-testing.
+    This is currently testing with BeautifulSoup4.
 
-    TODO: Implement proper front-end testing.
+    TODO: Implement proper front-end testing with Selenium.
 """
 from bs4 import BeautifulSoup
 from flask import url_for

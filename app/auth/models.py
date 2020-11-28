@@ -14,8 +14,9 @@ class User(db.Model):
     # we'll find something else for admins.
     username = db.Column(db.String(15), unique=True)
 
-    # Going to err on the side of caution here, as India's phone numbers can be 13 digits long (and I'm not sure how the future will go). TODO: Replace this with PhoneNumberField.
-    #phone = db.Column(db.String(30), unique=True)
+    # India's phone numbers can be 13 digits long.
+    # TODO: Replace this with PhoneNumberField.
+    # phone = db.Column(db.String(30), unique=True)
     # Going to set an arbitrary length here, I think that this is pretty
     # reasonable for humans and should deny extremely long auto-generated
     # emails.  Of course, additional validation still needs to be applied.

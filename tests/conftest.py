@@ -28,7 +28,7 @@ class CleanTestingMixin(object):
     """Mixin class to provide simple cleanup/teardown operations on a class-base level."""
 
     def setup_class(self):
-        """Clean the DB by dropping all existing data and creating fresh tables prior to running each classes' test cases."""
+        """Drop all existing data and create empty tables prior to running each classes' test cases."""
         with flask_app.app_context():
             db.drop_all()
             db.create_all()

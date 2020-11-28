@@ -8,7 +8,7 @@ def test_sanity_truthy():
 
 
 def test_sanity_falsey():
-    assert False == False
+    assert not False
 
 
 def test_app_fixture(app):

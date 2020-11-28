@@ -9,15 +9,19 @@ auth_bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 
 def do_login(user):
-    """Helper function to log a user in by setting the primary key (`id`) of a user in a session.  Having this separated will be useful if we ever want to send alerts on login or something like that.
-        :user: app.auth.models.User instance, so we can grab the primary key and set it into session.
+    """Helper function to log a user in by setting the primary key (`id`) of a user in a session.
+        Having this separated will be useful if we ever want to send alerts on login or something like that.
+
+            :user: app.auth.models.User instance, so we can grab the primary key and set it into session.
     """
 
     session['uid'] = user.id
 
 
 def do_logout():
-    """Helper function to logout a user by clearing all session keys.  Having this separated will be useful if we ever want to send alerts on login or something like that."""
+    """Helper function to logout a user by clearing all session keys.
+        Having this separated will be useful if we ever want to send alerts on login or something like that.
+    """
 
     session.clear()
 
