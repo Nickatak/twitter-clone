@@ -1,22 +1,19 @@
 """Validators to be used in WTForms for the auth application.
     Validator names are written to be conformant with existing `wtforms.valiator.ValidatorFunctions`.
 """
+import re
+
 from wtforms.validators import DataRequired, Email, Length, Regexp, ValidationError, StopValidation
 
 from app.auth.models import User
 
-def NoSpecialChars():
-    """Validator to make sure @, +, ., and spaces aren't in the supplied field's data.
-        This is basically a renamed wrapper around `wtforms.validators.Regexp()`.
 
-        TODO: Clean this up and use real regex.
-    """
+def NoSpecialChars():
+    """Validator to make sure special characters or spaces aren't in the supplied field's data."""
+
     def _(form, field):
-        # Quick and dirty hack.
-        if ' ' in field.data:
-            raise ValidationError('May not contain @, +, ., or spaces.')
-        else:
-            Regexp('\w+', message='May not contain @, +, ., or spaces.')(form, field)
+        if not re.match('^\w+$', field.data):
+            raise StopValidation('Must be letters (uppercase or lowercase), digits, and underscores only.')
 
     return _
 
