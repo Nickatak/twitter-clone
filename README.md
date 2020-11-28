@@ -52,6 +52,7 @@ Every major version ("build") will be released so people can look at past revisi
 * DevOps/Testing
   * [Pytest](https://docs.pytest.org/en/stable/)
   * [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+  * [Coverage](https://coverage.readthedocs.io/en/coverage-5.3/)
 
 ### Past builds
 
@@ -92,10 +93,22 @@ This is an example of how to list things you need to use the software and how to
   pip install -r requirements.txt
   ```
 
-3. Run pytest.
+3. Run pytest (with coverage).
+  ```
+  coverage run -m pytest
+  ```
+
+  OPTIONAL: If you don't want to see the test-coverage, then you can just run (and stop here):
   ```
   pytest
   ```
+
+4. Generate coverage-report.
+  ```
+  coverage html
+  ```
+
+5. Open up `/htmlcov/index.html` in your browser to see the coverage report.
 
 ## Contributing
 
