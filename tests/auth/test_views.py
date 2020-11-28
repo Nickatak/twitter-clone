@@ -37,7 +37,6 @@ class TestSignup(CleanTestingMixin):
             User.query.delete()
             db.session.commit()
 
-
     def test_route_GET(self, client):
         """Does our route handle GET requests?"""
 
