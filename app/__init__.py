@@ -12,6 +12,7 @@ from config import DevConfig
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 
+
 def create_app(conf_obj=DevConfig):
     app = Flask(__name__,
                 instance_relative_config=False,
@@ -25,7 +26,6 @@ def create_app(conf_obj=DevConfig):
     db.init_app(app)
     bcrypt.init_app(app)
 
-
     # Register blueprints.
     from app import auth
     from app import twitter
@@ -36,7 +36,7 @@ def create_app(conf_obj=DevConfig):
     with app.app_context():
         if app.config['TESTING']:
             db.drop_all()
-        #Create all models.
+        # Create all models.
         db.create_all()
 
     return app

@@ -7,7 +7,7 @@ from tests.conftest import CleanTestingMixin
 
 
 class TestExistence(CleanTestingMixin):
-    """Test the existence of our `User` class."""    
+    """Test the existence of our `User` class."""
 
     def test_model_exists(self):
         """Does our model exist?"""
@@ -32,6 +32,7 @@ class TestExistence(CleanTestingMixin):
             assert extracted_user is not None
             assert extracted_user.username == 'Test'
             assert extracted_user.email == 'test@test.com'
+
 
 class TestFields(CleanTestingMixin):
     """Test the fields on the `User` class."""
@@ -99,6 +100,7 @@ class TestFields(CleanTestingMixin):
         assert isinstance(column.type, db.String)
         assert column.type.length == 256
 
+
 class TestHelpers(CleanTestingMixin):
     """Test the helper methods for the `User` class."""
 
@@ -107,10 +109,10 @@ class TestHelpers(CleanTestingMixin):
 
         with app.app_context():
             new_user = User.create(name='tester',
-                                username='testing',
-                                email='testing@testing.com',
-                                password='Qweqweqwe123'
-            )
+                                   username='testing',
+                                   email='testing@testing.com',
+                                   password='Qweqweqwe123'
+                                   )
             user = User.query.first()
 
             assert user is not None
@@ -145,14 +147,14 @@ class TestHelpers(CleanTestingMixin):
         """Does our static method `User.authenticate()` fail properly (return a NoneType) when given an incorrect username/PW combination?"""
 
         with app.app_context():
-            #Non existent username:
+            # Non existent username:
             att_user = User.authenticate('asdf', 'asdf')
             assert att_user is None
 
-            #Existing username but bad password:
+            # Existing username but bad password:
             att_user = User.authenticate('testing', 'asdf')
             assert att_user is None
 
-            #Correct password but non existing username:
+            # Correct password but non existing username:
             att_user = User.authenticate('asdf', 'Qweqweqwe123')
             assert att_user is None

@@ -2,14 +2,18 @@
 from flask import Flask
 from flask.testing import FlaskClient
 
+
 def test_sanity_truthy():
-    assert True == True
+    assert True
+
 
 def test_sanity_falsey():
     assert False == False
 
+
 def test_app_fixture(app):
-    assert isinstance(app, Flask) == True
+    assert isinstance(app, Flask)
+
 
 def test_client_fixture(client):
-    assert isinstance(client, FlaskClient) == True
+    assert isinstance(client, FlaskClient)
