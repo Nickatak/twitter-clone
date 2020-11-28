@@ -13,9 +13,7 @@ from tests.conftest import CleanTestingMixin
 class TestRouteBehavior(CleanTestingMixin):
     """Test our logout route's behavior."""
 
-    # TODO: Change this when we remove the `/auth/` prefix from our auth
-    # application.
-    LOGOUT_URL = '/auth/logout'
+    LOGOUT_URL = '/logout'
 
     @pytest.fixture
     def valid_data(self):

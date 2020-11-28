@@ -16,9 +16,7 @@ from tests.conftest import CleanTestingMixin
 class TestRouteBehavior(CleanTestingMixin):
     """Test our signup route's behavior."""
 
-    # TODO: Change this when we remove the `/auth/` prefix from our auth
-    # application.
-    SIGNUP_URL = '/auth/signup'
+    SIGNUP_URL = '/signup'
 
     @pytest.fixture
     def form(self, app):
@@ -175,9 +173,7 @@ class TestRouteBehavior(CleanTestingMixin):
 class TestFormValidationBehavior(CleanTestingMixin):
     """Test our RegistrationForm's behavior."""
 
-    # TODO: Change this when we remove the `/auth/` prefix from our auth
-    # application.
-    SIGNUP_URL = '/auth/signup'
+    SIGNUP_URL = '/signup'
 
     @pytest.fixture
     def form(self, app):
