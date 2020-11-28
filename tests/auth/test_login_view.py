@@ -211,3 +211,42 @@ class TestFormValidationBehavior(CleanTestingMixin):
         assert len(errors) == 1
         # The first element in our validators will always be `DataRequired()`
         assert errors[0].decode_contents() == form.password.validators[0].message
+
+    def test_fail_invalid_combination(self, app, client, valid_data):
+        """Does our route fail if we send invalid data?"""
+        with app.app_context():
+            User.create(name=valid_data['name'],
+                        username=valid_data['username'],
+                        email=valid_data['email'],
+                        password=valid_data['password'],
+            )
+
+            # Correct username, but incorrect password.
+            invalid_data = {
+                'username' : 'tester',
+                'password' : 'notmypassword',
+            }
+
+            resp = client.post(type(self).LOGIN_URL, data=invalid_data, follow_redirects=True)
+            html = BeautifulSoup(resp.data, 'html.parser')
+
+            errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+            assert len(errors) == 1
+            # The first element in our validators will always be `DataRequired()`
+            assert errors[0].decode_contents() == 'The username and password you entered did not match our records. Please double-check and try again.'
+
+            # Correct password but incorrect username.
+            invalid_data = {
+                'username' : 'asdf',
+                'password' : 'Qweqweqwe123',
+            }
+
+            resp = client.post(type(self).LOGIN_URL, data=invalid_data, follow_redirects=True)
+            html = BeautifulSoup(resp.data, 'html.parser')
+
+            errors = html.find_all('p', {'class' : 'twitter-text error'})
+
+            assert len(errors) == 1
+            # The first element in our validators will always be `DataRequired()`
+            assert errors[0].decode_contents() == 'The username and password you entered did not match our records. Please double-check and try again.'
