@@ -78,7 +78,7 @@ Every major version ("build") will be released so people can look at past revisi
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+You need the following programs/utilities/etc.:
   * Python3
 
 ### Testing
@@ -119,13 +119,13 @@ This is an example of how to list things you need to use the software and how to
 
 Join in the fun and contribute.  This is a non-serious project, so don't be afraid to break something (although I'll try my best not to let that happen by reviewing your changes before merging, of course).
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
+1. Fork the Project.
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the Branch (`git push origin feature/AmazingFeature`).
 5. Write new tests for your new feature.
 6. Run tests (See: [testing](#Testing)) and make sure they all pass.
-7. Open a Pull Request
+7. Open a Pull Request.
 
 
 ## License
