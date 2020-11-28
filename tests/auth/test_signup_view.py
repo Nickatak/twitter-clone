@@ -14,7 +14,7 @@ from tests.conftest import CleanTestingMixin
 
 
 class TestRouteBehavior(CleanTestingMixin):
-    """Test our signup route."""
+    """Test our signup route's behavior."""
 
     # TODO: Change this when we remove the `/auth/` prefix from our auth application.
     SIGNUP_URL = '/auth/signup'
@@ -159,6 +159,7 @@ class TestRouteBehavior(CleanTestingMixin):
 
 
 class TestFormBehavior(CleanTestingMixin):
+    """Test our RegistrationForm's behavior."""
 
     # TODO: Change this when we remove the `/auth/` prefix from our auth application.
     SIGNUP_URL = '/auth/signup'
