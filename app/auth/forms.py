@@ -42,9 +42,19 @@ class RegistrationForm(FlaskForm):
     ]
 
     # The first validator in our validators[] should be `DataRequired()`.
-    name = StringField('Name', validators=[DataRequired(message='Name is required.'), Length(max=50, message='Name cannot be longer than 50 characters.')])
-    username = StringField('Username', validators=[DataRequired(message='Username is required.'), Length(max=15, message='Username cannot be longer than 15 characters.'), NoSpecialChars(), Unique()])
-    email = StringField('Email', validators=[DataRequired(message='Email is required.'), Length(max=100, message='Email cannot be longer than 100 characters.'), EmailIsValid(), Unique()])
+    name = StringField('Name', validators=[DataRequired(message='Name is required.'),
+                                           Length(max=50, message='Name cannot be longer than 50 characters.'),
+                                        ])
+    username = StringField('Username', validators=[DataRequired(message='Username is required.'),
+                                                   Length(max=15, message='Username cannot be longer than 15 characters.'),
+                                                   NoSpecialChars(), 
+                                                   Unique(),
+                                                ])
+    email = StringField('Email', validators=[DataRequired(message='Email is required.'),
+                                             Length(max=100, message='Email cannot be longer than 100 characters.'), 
+                                             EmailIsValid(), 
+                                             Unique(),
+                                            ])
     password = PasswordField('Password', validators=[DataRequired(message='Password is required.')])
     month = SelectField('Month', choices=MONTH_CHOICES, validators=[DataRequired(message='Month is required.')])
     day = SelectField('Day', choices=DAY_CHOICES, validators=[DataRequired(message='Day is required.')])
