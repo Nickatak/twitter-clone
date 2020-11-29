@@ -1,11 +1,13 @@
 <!-- Placeholder template. -->
 {% extends 'twitter/navbar.html' %}
 
-{% block header %}
-    {{ super() }}
+{% block page_header %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/twitter/dashboard.css') }}">
 {% endblock %}
 
-{% block content %}
-    {{ super() }}
+{% block page_content %}
+    <form action="/posts/create">
+        <input type="text" placeholder="What's happening?">
+        <button type="submit">Tweet</button>
+    </form>
 {% endblock %}
