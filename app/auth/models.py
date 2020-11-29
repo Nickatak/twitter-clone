@@ -5,6 +5,7 @@ from app import bcrypt, db
 
 class User(db.Model):
     """Custom User model."""
+    __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
 
     # This is the "display name."
