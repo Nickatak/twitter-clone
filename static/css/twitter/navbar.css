@@ -60,7 +60,7 @@ Table of contents:
     fill: currentColor;
 }
 
-.twitter-bird svg {
+.icon-container svg {
     flex-grow: 1;
     height: 2rem;
     width: 1.5rem;
