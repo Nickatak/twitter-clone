@@ -110,3 +110,8 @@ svg {
     width: 39px;
     height: 39px;
 }
+
+.page-content-wrapper {
+    flex-grow: 1;
+    max-width: 600px;
+}
