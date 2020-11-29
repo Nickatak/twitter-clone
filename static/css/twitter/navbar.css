@@ -18,6 +18,10 @@ Table of contents:
     flex-direction: row;
 }
 
+.circle {
+    border-radius: 50%;
+}
+
 /*
 =============================================================================================
 2. Navbar styles.
@@ -29,7 +33,7 @@ Table of contents:
     flex-direction: column;
     background-color: white;
     border-right: 1px solid	rgb(243, 244, 246);
-    width: 68px;
+    min-width: 68px;
     align-items: center;
     /* Revisit this idea when the main content is put in.
     flex-grow: 1;
@@ -55,13 +59,31 @@ Table of contents:
     align-items: center;
 }
 
+.icon-container:hover { 
+    background-color: rgba(29, 161, 242, 0.1);
+    border-radius: 50%;
+    fill: rgb(29,161,242);
+}
+
+
+
 .twitter-bird {
     color: rgb(29,161,242);
     fill: currentColor;
 }
 
-.icon-container svg {
+svg {
     flex-grow: 1;
     height: 2rem;
     width: 1.5rem;
+}
+
+.new-post-link {
+    justify-content: center;
+    align-items: center;
+    min-height: 49px;
+    min-width: 49px;
+    margin-top: 15px;
+    background-color: rgb(29, 161, 242);
+    fill: white;
 }
