@@ -53,19 +53,18 @@ Table of contents:
 
 .icon-container {
     min-width: 49px;
-    min-height: 53px;
+    min-height: 49px;
     padding: 2px 0;
+    margin: 2px 0;
     justify-content: center;
     align-items: center;
+    transition: background-color 0.2s;
 }
 
 .icon-container:hover { 
     background-color: rgba(29, 161, 242, 0.1);
-    border-radius: 50%;
     fill: rgb(29,161,242);
 }
-
-
 
 .twitter-bird {
     color: rgb(29,161,242);
@@ -86,4 +85,29 @@ svg {
     margin-top: 15px;
     background-color: rgb(29, 161, 242);
     fill: white;
+    transition: background-color 0.2s;
+}
+
+.new-post-link:hover {
+    background-color: rgb(26, 145, 218);
+}
+
+.sign-out {
+    min-width: 59px;
+    min-height: 59px;
+    margin-top: auto;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.sign-out:hover { 
+    background-color: rgba(29, 161, 242, 0.1);
+    border-radius: 50%;
+    fill: rgb(29,161,242);
+}
+
+#profile-img {
+    width: 39px;
+    height: 39px;
 }
