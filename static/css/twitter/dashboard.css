@@ -97,15 +97,15 @@ Table of contents:
 
 .button {
     margin-left: auto;
-    max-width: 62px;
     min-height: 37px;
     justify-content: center;
     align-items: center;
     padding: 0 15px;
     border-radius: 9999px;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 15px;
     margin-top: 15px;
+    font-weight: 700;
 }
 
 .blue-background {
