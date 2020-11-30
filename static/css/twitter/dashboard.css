@@ -1,3 +1,128 @@
+/* Styles for the Navbar component. */
+
+/*
+=============================================================================================
+Table of contents:
+    1. Global/Helper styles.
+    2. Add Post Form styles.
+=============================================================================================
+*/
+
+/*
+=============================================================================================
+1. Global/Helper styles.
+=============================================================================================
+*/
+
+.circle {
+    border-radius: 50%;
+}
+
+.twitter-text {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
+}
+
+/*
+=============================================================================================
+2. Add Post Form styles.
+=============================================================================================
+*/
+
 .page-content-wrapper {
+    border: 1px solid rgb(243, 244, 246);
     flex-direction: column;
 }
+
+.add-new-post-container {
+    flex-direction: column;
+}
+
+.add-new-post-header {
+    align-items: center;
+    padding: 0 15px;
+    border-bottom: 1px solid rgb(243, 244, 246);
+}
+
+.add-new-post-header h2 {
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.stars-container {
+    min-height: 37px;
+    min-width: 37px;
+    margin-left: auto;
+    justify-content: center;
+    align-items: center;
+    fill: rgb(29,161,242);
+}
+
+.stars-container:hover {
+    background-color: rgba(29, 161, 242, 0.1);
+}
+
+.stars {
+    height: 24px;
+}
+
+.add-new-post-form-container {
+    padding: 10px 15px;
+}
+
+.profile {
+    width: 49px;
+    height: 49px;
+    margin-right: 10px;
+}
+
+.profile img {
+    width: 49px;
+    height: 49px;
+}
+
+.add-new-post-form {
+    flex: 1;
+}
+
+.add-new-post-form form {
+    flex: 1;
+    flex-direction: column;
+}
+.add-new-post-form input {
+    padding: 10px 0;
+    font-size: 19px;
+    border: none;
+    outline: none;
+}
+
+.button {
+    margin-left: auto;
+    max-width: 62px;
+    min-height: 37px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.blue-background {
+    background-color: rgb(29, 161, 242);
+    color: white;
+    border: 1px solid transparent;
+}
+
+/*
+=============================================================================================
+3. Add Post Form styles.
+=============================================================================================
+*/
+
+.content-divider {
+    height: 10px;
+    background-color: rgb(247, 249, 250);
+}
+
+

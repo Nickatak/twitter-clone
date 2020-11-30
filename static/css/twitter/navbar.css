@@ -41,6 +41,11 @@ Table of contents:
     */
 }
 
+#navbar-wrapper svg {
+    flex-grow: 1;
+    height: 1.9rem;
+}
+
 #navbar-list {
     margin: 0;
     padding: 0;
@@ -69,11 +74,6 @@ Table of contents:
 .twitter-bird {
     color: rgb(29,161,242);
     fill: currentColor;
-}
-
-svg {
-    flex-grow: 1;
-    height: 1.9rem;
 }
 
 .new-post-link {
