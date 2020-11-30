@@ -6,8 +6,15 @@
 {% endblock %}
 
 {% block page_content %}
-    <form action="/posts/create">
-        <input type="text" placeholder="What's happening?">
+    <form action="/posts/create" method='POST'>
+        <input type="text" placeholder="What's happening?" name="content">
         <button type="submit">Tweet</button>
     </form>
+    <div class="tweet-container">
+        {% for post in all_posts %}
+            <div>
+                {{ post }} - {{ post.content }}
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
