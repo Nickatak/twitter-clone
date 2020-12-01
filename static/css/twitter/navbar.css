@@ -92,7 +92,7 @@ header {
             background-color: rgb(26, 145, 218);
         }
 
-.sign-out {
+.sign-out-form {
     min-width: 59px;
     min-height: 59px;
     margin-top: auto;
@@ -101,11 +101,16 @@ header {
     margin-bottom: 10px;
 }
 
-.sign-out:hover { 
-    background-color: rgba(29, 161, 242, 0.1);
-    border-radius: 50%;
-    fill: rgb(29,161,242);
-}
+    .sign-out-form:hover { 
+        background-color: rgba(29, 161, 242, 0.1);
+        border-radius: 50%;
+        fill: rgb(29,161,242);
+    }
+
+    .sign-out-button {
+        border: none;
+        background-color: transparent;
+    }
 
 #profile-img {
     width: 39px;
