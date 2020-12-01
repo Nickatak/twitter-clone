@@ -23,7 +23,7 @@ class User(db.Model):
 
         create(cls, name, username, email, password)
             Instance method to create a new instance of a User.
-        
+
         get_by_username_or_404(cls, username)
             Helper method to retrieve a User by their username.
     """
