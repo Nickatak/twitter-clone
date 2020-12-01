@@ -6,6 +6,10 @@ __pycache__/
 .coverage
 htmlcov/
 
+#Utility scripts
+*.sh
+*.ps1
+
 # production
 /build
 
