@@ -36,10 +36,10 @@ def index():
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
     """User login page."""
-    #If the user has an active session, redirect home
+    # If the user has an active session, redirect home
     if 'uid' in session:
         g.user = User.query.get(session['uid'])
-        if not g.user is None:
+        if g.user is not None:
             return redirect(url_for('twitter.dashboard'))
     
     form = LoginForm()
