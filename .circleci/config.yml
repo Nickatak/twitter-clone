@@ -1,0 +1,22 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.8.3
+    environment:
+      FLASK_ENV: development
+    steps:
+      - checkout
+      - run:
+          name: Install Python dependencies in a venv.
+          command: pip install -r requirements.txt
+      - run:
+          name: Test
+          command: pytest
+      - run:
+          name: Flake8 Lint
+          command: flake8
+      - run:
+          name: PycodeStyle Lint
+          command: pycodestyle
