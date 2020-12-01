@@ -1,6 +1,7 @@
 from flask import Blueprint, g, render_template, redirect, request, session, url_for
 
 from app import db
+from app.auth.models import User
 from app.twitter.models import Post
 
 twitter_bp = Blueprint('twitter', __name__)
@@ -31,7 +32,7 @@ def dashboard():
 
 @twitter_bp.route('/posts/create', methods=['POST'])
 def create_post():
-    """Create a new POST
+    """Create a new POST.
         This is currently here just for minimally-working testing.
 
         TODO: Implement this.
@@ -50,3 +51,15 @@ def create_post():
     db.session.commit()
 
     return redirect(url_for('twitter.dashboard'))
+
+@twitter_bp.route('/<username>')
+def view_user(username):
+    """View a user's profile.
+        This route may be viewed by an unauthorized user.
+
+        TODO: Implement this.
+    """
+
+    user = User.get_by_username_or_404(username)
+
+    return render_template('twitter/profile.html', user=user)
