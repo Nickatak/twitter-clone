@@ -18,7 +18,8 @@ def assign_uid():
 @twitter_bp.route('/home')
 def dashboard():
     """Twitter Clone Dashboard.
-        TODO: Implement this.
+
+        TODO: Implement this. Currently being worked on by: Ethan.
     """
 
     # Simple unauthorized redirect.
@@ -57,7 +58,7 @@ def view_user(username):
     """View a user's profile.
         This route may be viewed by an unauthorized user.
 
-        TODO: Implement this.
+        TODO: Implement this. Currently being worked on by: Nick.
     """
 
     user = User.get_by_username_or_404(username)
