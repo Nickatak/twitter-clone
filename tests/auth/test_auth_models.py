@@ -15,7 +15,7 @@ class TestUserExistence(CleanTestingMixin):
         assert User.__table__ is not None
 
     def test_model_write(self, app):
-        """Can your model be used to write data to the DB?"""
+        """Can our model be used to write data to the DB?"""
 
         with app.app_context():
             new_user = User(
