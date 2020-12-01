@@ -74,6 +74,4 @@ def logout():
     """User logout route."""
 
     do_logout()
-    print(session)
-    print('-' * 50)
     return redirect(url_for('auth.index'))
