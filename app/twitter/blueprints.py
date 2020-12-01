@@ -8,11 +8,16 @@ twitter_bp = Blueprint('twitter', __name__)
 
 
 @twitter_bp.before_request
-def assign_uid():
+def assign_user():
+    """I might have to revise this later,
+        but since the user information is required on the navbar rendering, 
+        I don't think another query is avoidalbe right now.
+     """
+
     if 'uid' in session:
-        g.uid = session['uid']
+        g.user = User.query.get(session['uid'])
     else:
-        g.uid = None
+        g.user = None
 
 
 @twitter_bp.route('/home')
@@ -23,7 +28,7 @@ def dashboard():
     """
 
     # Simple unauthorized redirect.
-    if g.uid is None:
+    if g.user is None:
         return redirect(url_for('auth.login'))
 
     all_posts = Post.query.all()
@@ -40,7 +45,7 @@ def create_post():
     """
 
     # Simple unauthorized redirect.
-    if g.uid is None:
+    if g.user is None:
         return redirect(url_for('auth.login'))
 
     new_post = Post(
