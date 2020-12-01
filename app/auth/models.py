@@ -6,7 +6,27 @@ from app import bcrypt, db
 
 
 class User(db.Model):
-    """Custom User model."""
+    """
+    Custom User model.
+
+    Attributes:
+        name (string): Display name of a user with a 50 char max.
+        username (string): User handle (EG: @user123) with a 15 char limit.
+        id (int): User identification number.
+        phone (string): User phone number with a 30 char maxiumum.
+        email (string): Email of a user with a 100 char limit.
+        password (string): User password with 256 char limit.
+
+    Methods:
+        authenticate(cls, username, password)
+            Helper function to authorize a user given a username/password combination.
+
+        create(cls, name, username, email, password)
+            Instance method to create a new instance of a User.
+        
+        get_by_username_or_404(cls, username)
+            Helper method to retrieve a User by their username.
+    """
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
 
@@ -52,6 +72,17 @@ class User(db.Model):
 
     @classmethod
     def create(cls, name, username, email, password):
+        """Instance method to create a new instance of a User.
+            This method adds a new user to the database.
+
+            :name: Display name.
+            :username: Twitter handle (ex. @user123).
+            :email: User email.
+            :password: User password.
+
+            returns:
+                New instance of a User.
+        """
         new_user = cls(name=name,
                        username=username,
                        email=email
