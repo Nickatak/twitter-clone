@@ -1,5 +1,7 @@
 """Authentication models."""
 
+from flask import abort
+
 from app import bcrypt, db
 
 
@@ -61,3 +63,22 @@ class User(db.Model):
         db.session.commit()
 
         return new_user
+
+    @classmethod
+    def get_by_username_or_404(cls, username):
+        """Helper method to retrieve a User by their username.
+            WARNING: This method aborts and returns a 404 if the username isn't found.
+
+            :username: The username you want to fetch a User instance by.
+
+        returns:
+            User instance if the username exists in the DB.
+            None (aborts view-method with a 404 response) if username doesn't exist.
+        """
+
+        user = cls.query.filter(cls.username == username).first()
+
+        if user is None:
+            abort(404, description='Resource not found.')
+
+        return user
