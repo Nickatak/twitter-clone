@@ -1,5 +1,5 @@
 """Auth routes."""
-from flask import Blueprint, redirect, render_template, session, url_for
+from flask import Blueprint, g, redirect, render_template, session, url_for
 
 from app.auth.forms import LoginForm, RegistrationForm
 from app.auth.models import User
@@ -36,7 +36,12 @@ def index():
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
     """User login page."""
-
+    #If the user has an active session, redirect home
+    if 'uid' in session:
+        g.user = User.query.get(session['uid'])
+        if not g.user is None:
+            return redirect(url_for('twitter.dashboard'))
+    
     form = LoginForm()
     if form.validate_on_submit():
         user = User.authenticate(form.username.data, form.password.data)
