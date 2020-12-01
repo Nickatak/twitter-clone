@@ -6,7 +6,7 @@ base.html
 ├── auth/index.html
 ├── auth/login.html
 ├── auth/signup.html
-├── twitter/navbar.html
-|   ├── twitter/dashboard.html
-|   └──
+└── twitter/navbar.html
+    ├── twitter/dashboard.html
+    └── twitter/profile.html
 ```
