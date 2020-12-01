@@ -22,74 +22,75 @@ Table of contents:
     border-radius: 50%;
 }
 
+.twitter-bird {
+    color: rgb(29,161,242);
+    fill: currentColor;
+}
+
+.col {
+    flex-direction: column;
+}
+
 /*
 =============================================================================================
 2. Navbar styles.
 =============================================================================================
 */
 
-#navbar-wrapper {
+header {
+    align-items: center;
     min-height: 100%;
-    flex-direction: column;
+    min-width: 68px;
     background-color: white;
     border-right: 1px solid	rgb(243, 244, 246);
-    min-width: 68px;
-    align-items: center;
     /* Revisit this idea when the main content is put in.
     flex-grow: 1;
     max-width: 200px;
     */
 }
 
-#navbar-wrapper svg {
-    flex-grow: 1;
-    height: 1.9rem;
-}
+    .nav-icon {
+        flex-grow: 1;
+        height: 1.9rem;
+    }
 
-#navbar-list {
-    margin: 0;
-    padding: 0;
-    flex-direction:column;
-}
+    #navbar-list {
+        flex-direction:column;
+        margin: 0;
+        padding: 0;
+    }
 
-#navbar-list li {
-    padding: 3px 0;
-}
+    .navbar-item {
+        padding: 5px 0;
+    }
 
-.icon-container {
-    min-width: 49px;
-    min-height: 49px;
-    padding: 2px 0;
-    margin: 2px 0;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.2s;
-}
+        .nav-icon-container {
+            justify-content: center;
+            align-items: center;
+            min-width: 49px;
+            min-height: 49px;
+            transition: background-color 0.2s;
+        }
 
-.icon-container:hover { 
-    background-color: rgba(29, 161, 242, 0.1);
-    fill: rgb(29,161,242);
-}
+        .nav-icon-container:hover { 
+            background-color: rgba(29, 161, 242, 0.1);
+            fill: rgb(29,161,242);
+        }
 
-.twitter-bird {
-    color: rgb(29,161,242);
-    fill: currentColor;
-}
+        .nav-add-new-post-link {
+            justify-content: center;
+            align-items: center;
+            min-height: 49px;
+            min-width: 49px;
+            margin-top: 15px;
+            background-color: rgb(29, 161, 242);
+            fill: white;
+            transition: background-color 0.2s;
+        }
 
-.new-post-link {
-    justify-content: center;
-    align-items: center;
-    min-height: 49px;
-    min-width: 49px;
-    margin-top: 15px;
-    background-color: rgb(29, 161, 242);
-    fill: white;
-    transition: background-color 0.2s;
-}
-
-.new-post-link:hover {
-    background-color: rgb(26, 145, 218);
-}
+        .nav-add-new-post-link:hover {
+            background-color: rgb(26, 145, 218);
+        }
 
 .sign-out {
     min-width: 59px;

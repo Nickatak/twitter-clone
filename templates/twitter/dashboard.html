@@ -33,7 +33,8 @@
 
     <div class="tweet-container">
         {% for post in all_posts %}
-            <div>
+            <div class="post">
+                <a href="#">{{ post.user.name }} @{{ post.user.username }} - </a>
                 {{ post }} - {{ post.content }}
             </div>
         {% endfor %}
