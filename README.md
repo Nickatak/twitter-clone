@@ -57,7 +57,7 @@ Every major version ("build") will be released so people can look at past revisi
   * [Autopep8](https://github.com/hhatto/autopep8)
   * [Pycodestyle - pep8](https://github.com/PyCQA/pycodestyle)
 * DevOps/Integration
-  * None yet.
+  * [Circle CI](https://circleci.com/)
 
 ### Past builds
 
