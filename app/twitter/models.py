@@ -28,12 +28,11 @@ class Post(db.Model):
     # We'll revise this later to include standard tweet character limits.
     content = db.Column(db.Text)
     # Yikes, self-M2M's in SQLAlchemy are kind of difficult and require explicit raw table specification.
-    replies = db.relationship('Reply',
+    replies = db.relationship('Post',
      secondary=Reply.__table__,
      primaryjoin=Reply.__table__.columns.target_post_id == id,
-     secondaryjoin=Reply.__table__.columns.target_post_id == id,
-     backref=db.backref('replies', lazy='dynamic'),
-     lazy='dynamic',
+     secondaryjoin=Reply.__table__.columns.reply_post_id == id,
+     backref=db.backref('replies_to')
     )
 
 
