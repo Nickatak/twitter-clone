@@ -41,7 +41,6 @@ def login():
         g.user = User.query.get(session['uid'])
         if g.user is not None:
             return redirect(url_for('twitter.dashboard'))
-    
     form = LoginForm()
     if form.validate_on_submit():
         user = User.authenticate(form.username.data, form.password.data)
