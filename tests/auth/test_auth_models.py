@@ -6,7 +6,7 @@ from app.auth.models import User
 from tests.conftest import CleanTestingMixin
 
 
-class TestExistence(CleanTestingMixin):
+class TestUserExistence(CleanTestingMixin):
     """Test the existence of our `User` class."""
 
     def test_model_exists(self):
@@ -34,7 +34,7 @@ class TestExistence(CleanTestingMixin):
             assert extracted_user.email == 'test@test.com'
 
 
-class TestFields(CleanTestingMixin):
+class TestUserFields(CleanTestingMixin):
     """Test the fields on the `User` class."""
 
     @pytest.fixture()
@@ -101,7 +101,7 @@ class TestFields(CleanTestingMixin):
         assert column.type.length == 256
 
 
-class TestHelpers(CleanTestingMixin):
+class TestUserHelpers(CleanTestingMixin):
     """Test the helper methods for the `User` class."""
 
     def test_model_create(self, app):
