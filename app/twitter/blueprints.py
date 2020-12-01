@@ -26,8 +26,8 @@ def dashboard():
 
     all_posts = Post.query.all()
 
-
     return render_template('twitter/dashboard.html', all_posts=all_posts)
+
 
 @twitter_bp.route('/posts/create', methods=['POST'])
 def create_post():
@@ -42,7 +42,7 @@ def create_post():
         return redirect(url_for('auth.login'))
 
     new_post = Post(
-        user_id = g.uid,
+        user_id=g.uid,
         content=request.form['content'],
     )
 
