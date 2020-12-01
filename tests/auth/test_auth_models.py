@@ -1,6 +1,8 @@
 """Tests for `app.auth.models.User` class."""
 import pytest
 
+from werkzeug.exceptions import HTTPException
+
 from app import db
 from app.auth.models import User
 from tests.conftest import CleanTestingMixin
@@ -158,3 +160,23 @@ class TestUserHelpers(CleanTestingMixin):
             # Correct password but non existing username:
             att_user = User.authenticate('asdf', 'Qweqweqwe123')
             assert att_user is None
+
+    def test_model_get_by_username(self, app):
+        """Does our static method `User.get_by_username_or_404` retrieve an existing user given a correct username?"""
+
+        with app.app_context():
+            user = User.query.first()
+
+            testing_user = User.get_by_username_or_404('testing')
+
+            assert testing_user == user
+
+    def test_model_get_by_username_fail(self, app):
+        """Does our static method `User.get_by_username_or_404` correctly 404 given a non-existing username?"""
+
+        with app.app_context():
+            try:
+                User.get_by_username_or_404('asdf')
+            except HTTPException as e:
+                assert e.response is None
+                assert e.description == "Resource not found."
