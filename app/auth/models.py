@@ -13,7 +13,7 @@ class User(db.Model):
     # This is the "handle" (EG: @blah).  Twitter has a 15 character limit on
     # handles, but admins can be longer, so I'll set this to 15 for now, and
     # we'll find something else for admins.
-    username = db.Column(db.String(15), unique=True, primary_key=True)
+    username = db.Column(db.String(15), unique=True, index=True)
 
     # India's phone numbers can be 13 digits long.
     # TODO: Replace this with PhoneNumberField.
