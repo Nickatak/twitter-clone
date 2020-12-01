@@ -10,7 +10,7 @@ twitter_bp = Blueprint('twitter', __name__)
 @twitter_bp.before_request
 def assign_user():
     """I might have to revise this later,
-        but since the user information is required on the navbar rendering, 
+        but since the user information is required on the navbar rendering,
         I don't think another query is avoidalbe right now.
      """
 
@@ -57,6 +57,7 @@ def create_post():
     db.session.commit()
 
     return redirect(url_for('twitter.dashboard'))
+
 
 @twitter_bp.route('/<username>')
 def view_user(username):
