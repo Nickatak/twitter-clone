@@ -133,6 +133,7 @@ Join in the fun and contribute.  This is a non-serious project, so don't be afra
 7. Run flake8/pycodestyle to make sure your code is PEP8 compliant/linted (`flake8`/`pycodestyle`).
 7. Open a Pull Request.
 
+Project slack link: [Slack](https://join.slack.com/t/twitter-clone/shared_invite/zt-joaypfrp-aPG8EA4R6eqtmhnvkYY4rw)
 
 ## License
 
