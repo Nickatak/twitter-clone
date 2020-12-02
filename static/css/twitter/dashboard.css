@@ -5,6 +5,7 @@
 Table of contents:
     1. Global/Helper styles.
     2. Add Post Form styles.
+    3. Post container/Posts styles.
 =============================================================================================
 */
 
@@ -20,6 +21,11 @@ Table of contents:
 
 .twitter-text {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
+}
+
+.content-divider {
+    height: 10px;
+    background-color: rgb(247, 249, 250);
 }
 
 /*
@@ -116,13 +122,81 @@ Table of contents:
 
 /*
 =============================================================================================
-3. Add Post Form styles.
+4. Add Post Form styles.
 =============================================================================================
 */
 
-.content-divider {
-    height: 10px;
-    background-color: rgb(247, 249, 250);
+.post-container {
+    flex-direction: column;
+
+}
+
+.post {
+    border: 1px solid rgb(243, 244, 246);
+    padding: 15px;
 }
 
 
+.post-profile-container {
+    min-height: 80px;
+    text-overflow: ellipsis;
+}
+
+.post-text-header {
+    font-size: 15px;
+    max-height: 20px;
+}
+
+.post-profile-link {
+    align-self: flex-start;
+    text-decoration: none;
+    align-items: flex-end;
+    color: rgb(91, 112, 131);
+}
+
+.post-profile-link span:first-child {
+    font-weight: 700;
+    color: black;
+}
+.post-profile-link span:first-child:hover {
+    text-decoration: underline;
+}
+
+.twitter-username {
+    font-weight: 400;
+    margin-left: 5px;
+}
+
+.twitter-username:hover {
+    text-decoration: none;
+}
+
+.post-time-divider {
+    padding: 0 5px;
+}
+
+.post-icon-container {
+    margin-left: auto;
+    width: 34px;
+    height: 34px;
+    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-icon-container:hover {
+    background-color: rgba(29, 161, 242, 0.1);
+}
+
+.post-icon-container svg {
+    height: 1.25em;
+}
+
+.post-text-container {
+    flex-direction: column;
+    flex: 1;
+}
+
+.post-text-header {
+    align-items: center;
+}
