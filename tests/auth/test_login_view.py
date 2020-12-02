@@ -131,6 +131,29 @@ class TestRouteBehavior(CleanTestingMixin):
             assert 'Location' in headers
             assert headers['Location'] == url_for('twitter.dashboard')
 
+    def test_auth_redirects(self, app, client, valid_data):
+        """Does our login route return a redirect to our dashboard route if authentication is present?"""
+
+        with app.app_context():
+            User.create(name=valid_data['name'],
+                        username=valid_data['username'],
+                        email=valid_data['email'],
+                        password=valid_data['password'],
+                        )
+
+            resp = client.post(type(self).LOGIN_URL,
+                               data=valid_data, follow_redirects=False)
+
+            assert resp.status_code == 302
+            headers = dict(resp.headers)
+            assert 'Location' in headers
+            assert headers['Location'] == url_for('twitter.dashboard')
+
+            loginresp = client.get(type(self).LOGIN_URL, follow_redirects=False)
+            loginheaders = dict(loginresp.headers)
+            assert 'Location' in loginheaders
+            assert loginheaders['Location'] == url_for('twitter.dashboard')
+
 
 class TestFormValidationBehavior(CleanTestingMixin):
     """Test our LoginForm's behavior."""
