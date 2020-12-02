@@ -148,8 +148,12 @@ class TestRouteBehavior(CleanTestingMixin):
             headers = dict(resp.headers)
             assert 'Location' in headers
             assert headers['Location'] == url_for('twitter.dashboard')
-            location = client.get('/login', follow_redirects=True)
-            assert headers['Location'] == url_for('twitter.dashboard')
+
+            loginresp = client.get(type(self).LOGIN_URL, follow_redirects=False)
+            loginheaders = dict(loginresp.headers)
+            assert 'Location' in loginheaders
+            assert loginheaders['Location'] == url_for('twitter.dashboard')
+
 
 class TestFormValidationBehavior(CleanTestingMixin):
     """Test our LoginForm's behavior."""
