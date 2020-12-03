@@ -49,7 +49,7 @@ def create_post():
         return redirect(url_for('auth.login'))
 
     new_post = Post(
-        user_id=g.uid,
+        user_id=g.user.id,
         content=request.form['content'],
     )
 
