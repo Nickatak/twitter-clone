@@ -14,10 +14,10 @@
         <nav class="col">
             <ul class="nav-list col">
                 <li class="nav-item">
-                    {{ nav_macros.generate_twitter_bird_link(url_for('twitter.dashboard')) }}
+                    {{ nav_macros.generate_twitter_bird_link('twitter.dashboard') }}
                 </li>
                 <li class="nav-item">
-                    {{ nav_macros.generate_nav_home_link(url_for('twitter.dashboard')) }}
+                    {{ nav_macros.generate_nav_home_link('twitter.dashboard') }}
                 </li>
                 <li class="nav-item">
                     {{ nav_macros.generate_nav_search_link(url_for('twitter.dashboard')) }}
