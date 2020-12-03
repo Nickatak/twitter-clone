@@ -35,7 +35,7 @@
                     {{ nav_macros.generate_nav_list_link(url_for('twitter.dashboard')) }}
                 </li>
                 <li class="nav-item">
-                    {{ nav_macros.generate_nav_profile_link(url_for('twitter.view_user', username=g.user.username)) }}
+                    {{ nav_macros.generate_nav_profile_link('twitter.view_user', g.user.username) }}
                 </li>
                 <li class="nav-item">
                     {{ nav_macros.generate_nav_more_link(url_for('twitter.dashboard')) }}
