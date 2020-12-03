@@ -1,0 +1,96 @@
+/* Styles for the any post related components (/twitter/post_macros.html). */
+
+/*
+=============================================================================================
+Table of contents:
+    1. Global/Override styles.
+    2. Add New Post Form styles.
+=============================================================================================
+*/
+
+/*
+=============================================================================================
+1. Global/Override styles.
+=============================================================================================
+*/
+
+
+/**/
+
+/*
+=============================================================================================
+2. Add New Post Form styles.
+=============================================================================================
+*/
+
+/* .add-new-post-container is the root element for the Add New Post Form. */
+
+    .add-new-post-header {
+        align-items: center;
+        padding: 0 15px;
+        border-bottom: 1px solid rgb(243, 244, 246);
+    }
+
+        .add-new-post-banner {
+            font-size: 19px;
+            font-weight: 800;
+        }
+
+        .add-new-post-stars-container {
+            min-height: 37px;
+            min-width: 37px;
+            margin-left: auto;
+        }
+
+            .add-new-post-stars {
+                height: 1.5em;
+            }
+
+    .add-new-post-form-container {
+        padding: 10px 15px;
+    }
+
+    .add-new-post-form-profile-container {
+        margin-right: 10px;
+    }
+    
+        .add-new-post-form-profile-link {
+            width: 49px;
+            height: 49px;
+        }
+
+            .add-new-post-form-profile-img {
+                width: 49px;
+                height: 49px;
+            }
+
+    .add-new-post-form {
+        flex: 1;
+    }
+
+        .add-new-post-form-input {
+            padding: 13px 0;
+            font-size: 19px;
+            border-bottom: 1px solid rgb(235, 238, 240);
+        }
+
+        .add-new-post-form-submit {
+            margin-left: auto;
+            min-height: 37px;
+            padding: 0 15px;
+            margin-top: 10px;
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .twitter-bg-color {
+            background-color: rgb(29, 161, 242);
+            color: white;
+            border: 1px solid transparent;
+        }
+        
+/*
+=============================================================================================
+3. Individual Post styles.
+=============================================================================================
+*/

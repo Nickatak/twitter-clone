@@ -102,6 +102,12 @@ html, body {
     flex-direction: row;
 }
 
+.twitter-content-divider {
+    /* Used to create a twitter-specific page-divider. */
+    height: 10px;
+    background-color: rgb(247, 249, 250);
+}
+
 .twitter-fill-color-hover:hover {
     /* Used to apply a twitter-blue fill color on-hover. */
     color: rgb(29,161,242);
