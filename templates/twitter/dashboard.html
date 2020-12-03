@@ -2,36 +2,17 @@
     Styles: /css/twitter/dashboard.css
 #}
 {% extends 'twitter/navbar.html' %}
+{% import 'twitter/post_macros.html' as post_macros %}
 
 {% block page_header %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/twitter/dashboard.css') }}">
+    {{ post_macros.link_posts_css() }}
 {% endblock %}
 
 {% block page_content %}
-    <div class="add-new-post-container">
-        <div class="add-new-post-header">
-            <h2 class="twitter-text">Home</h2>
-            <div class="stars-container circle">
-                <svg viewBox="0 0 24 24" class="stars"><g><path d="M22.772 10.506l-5.618-2.192-2.16-6.5c-.102-.307-.39-.514-.712-.514s-.61.207-.712.513l-2.16 6.5-5.62 2.192c-.287.112-.477.39-.477.7s.19.585.478.698l5.62 2.192 2.16 6.5c.102.306.39.513.712.513s.61-.207.712-.513l2.16-6.5 5.62-2.192c.287-.112.477-.39.477-.7s-.19-.585-.478-.697zm-6.49 2.32c-.208.08-.37.25-.44.46l-1.56 4.695-1.56-4.693c-.07-.21-.23-.38-.438-.462l-4.155-1.62 4.154-1.622c.208-.08.37-.25.44-.462l1.56-4.693 1.56 4.694c.07.212.23.382.438.463l4.155 1.62-4.155 1.622zM6.663 3.812h-1.88V2.05c0-.414-.337-.75-.75-.75s-.75.336-.75.75v1.762H1.5c-.414 0-.75.336-.75.75s.336.75.75.75h1.782v1.762c0 .414.336.75.75.75s.75-.336.75-.75V5.312h1.88c.415 0 .75-.336.75-.75s-.335-.75-.75-.75zm2.535 15.622h-1.1v-1.016c0-.414-.335-.75-.75-.75s-.75.336-.75.75v1.016H5.57c-.414 0-.75.336-.75.75s.336.75.75.75H6.6v1.016c0 .414.335.75.75.75s.75-.336.75-.75v-1.016h1.098c.414 0 .75-.336.75-.75s-.336-.75-.75-.75z"></path></g></svg>
-            </div>
+    {{ post_macros.generate_add_post_form() }}
 
-        </div>
-        <div class="add-new-post-form-container">
-            <div class="profile-link">
-                <a class="profile" href="#"><img src="{{ url_for('static', filename='img/twitter/default_profile_bigger.png') }}" class="circle"></a>
-            </div>
-            <div class="add-new-post-form">
-                <form action="/posts/create" method='POST'>
-                    <input type="text" placeholder="What's happening?" name="content">
-                    {# I can't really implement any of the reply-toggles, nor any of the cool img/etc. selectors since I don't have JS. #}
-                    <button type="submit" class="button blue-background"><span class="twitter-text">Tweet</span></button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div class="content-divider">{# This is the grey bar. #}</div>
-
+    <div class="twitter-content-divider"></div>
 
     <div class="post-container">
         {% for post in all_posts %}
@@ -43,16 +24,16 @@
                 <div class="post-text-container">
                     <div class="post-text-header">
                         <a href="#" class="post-profile-link">
-                            <span class="twitter-text">{{ post.user.name }}</span>
-                            <span class="twitter-username twitter-text">@{{ post.user.username }}</span>
-                            <span class="post-time-divider twitter-text">·</span>
+                            <span class="twitter-font">{{ post.user.name }}</span>
+                            <span class="twitter-username twitter-font">@{{ post.user.username }}</span>
+                            <span class="post-time-divider twitter-font">·</span>
                             <span>24h</span>
                         </a>
                         <a class="post-icon-container circle"><svg viewBox="0 0 24 24"><g><path d="M19.39 14.882c-1.58 0-2.862-1.283-2.862-2.86s1.283-2.862 2.86-2.862 2.862 1.283 2.862 2.86-1.284 2.862-2.86 2.862zm0-4.223c-.75 0-1.362.61-1.362 1.36s.61 1.36 1.36 1.36 1.362-.61 1.362-1.36-.61-1.36-1.36-1.36zM12 14.882c-1.578 0-2.86-1.283-2.86-2.86S10.42 9.158 12 9.158s2.86 1.282 2.86 2.86S13.578 14.88 12 14.88zm0-4.223c-.75 0-1.36.61-1.36 1.36s.61 1.362 1.36 1.362 1.36-.61 1.36-1.36-.61-1.363-1.36-1.363zm-7.39 4.223c-1.577 0-2.86-1.283-2.86-2.86S3.034 9.16 4.61 9.16s2.862 1.283 2.862 2.86-1.283 2.862-2.86 2.862zm0-4.223c-.75 0-1.36.61-1.36 1.36s.61 1.36 1.36 1.36 1.362-.61 1.362-1.36-.61-1.36-1.36-1.36z"></path></g></svg></a>
                     </div>
                     
-                    <div class="post-text-content twitter-text">
-                        <span>{{ post.content }}</span>
+                    <div class="post-text-content twitter-font">
+                        <p>{{ post.content }}</p>
                     </div>
 
                     <div class="post-action-bar">
