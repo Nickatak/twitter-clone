@@ -40,7 +40,10 @@ Table of contents:
 
 .nav-container {
     align-items: center;
-    min-height: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 100vh;
     min-width: 68px;
     background-color: white;
     border-right: 1px solid	rgb(243, 244, 246);
