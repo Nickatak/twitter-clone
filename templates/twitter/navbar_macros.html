@@ -1,6 +1,10 @@
-{# Helper macros to generate various links for the navbar component (/twitter/navbar.html).
+{# Helper macros to generate the navbar component.  The complete navbar is at the bottom (due to parse-order with jinja2).
     Styles: /css/twitter/navbar.css
 #}
+
+{% macro link_navbar_css() %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/twitter/navbar.css') }}">
+{% endmacro %}
 
 {% macro generate_twitter_bird_link(endpoint) %}
     {# The twitter bird link can never be an active link. #}
@@ -76,4 +80,42 @@
     <form action="{{ endpoint }}" method='POST' class="sign-out-form blue-background-color-hover center-content circle">
         <button class="sign-out-button no-outline"><img alt="Nickatak" draggable="true" src="{{ url_for('static', filename='img/twitter/default_profile_normal.png') }}" class="sign-out-image circle"></button>
     </form>
+{% endmacro %}
+
+{% macro generate_navbar() %}
+    <header class="nav-container col">
+        <nav class="col">
+            <ul class="nav-list col">
+                <li class="nav-item">
+                    {{ generate_twitter_bird_link('twitter.dashboard') }}
+                </li>
+                <li class="nav-item">
+                    {{ generate_nav_home_link('twitter.dashboard') }}
+                </li>
+                <li class="nav-item">
+                    {{ generate_nav_search_link(url_for('twitter.dashboard')) }}
+                </li>
+                <li class="nav-item">
+                    {{ generate_nav_notif_link(url_for('twitter.dashboard')) }}
+                </li>
+                <li class="nav-item">
+                    {{ generate_nav_message_link(url_for('twitter.dashboard')) }}
+                </li>
+                <li class="nav-item">
+                    {{ generate_nav_bookmark_link(url_for('twitter.dashboard')) }}
+                </li>
+                <li class="nav-item">
+                    {{ generate_nav_list_link(url_for('twitter.dashboard')) }}
+                </li>
+                <li class="nav-item">
+                    {{ generate_nav_profile_link('twitter.view_user', g.user.username) }}
+                </li>
+                <li class="nav-item">
+                    {{ generate_nav_more_link(url_for('twitter.dashboard')) }}
+                </li>
+            </ul>
+            {{ generate_nav_new_post_link(url_for('twitter.dashboard')) }}
+        </nav>
+        {{ generate_nav_logout_form(url_for('auth.logout'))}}
+    </header>
 {% endmacro %}
