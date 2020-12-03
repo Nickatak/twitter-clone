@@ -1,22 +1,32 @@
-/* Styles for the Navbar component. */
+/* Styles for the Navbar component/Navbar macros. */
 
 /*
 =============================================================================================
 Table of contents:
-    1. Global/Helper styles.
+    1. Global/Override styles.
     2. Navbar styles.
 =============================================================================================
 */
 
 /*
 =============================================================================================
-1. Global/Helper override styles.
+1. Global/Override styles.
 =============================================================================================
 */
 
 .flex-wrapper {
     flex-direction: row;
 }
+
+/* From: /base.css
+    .blue-background-color-hover
+    .center-content
+    .circle
+    .col
+    .no-outline
+    .twitter-fill-color-perma
+    .twitter-fill-color-hover
+*/
 
 /*
 =============================================================================================
