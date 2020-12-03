@@ -126,7 +126,7 @@ html, body {
     font-weight: 700;
 }
 
-.word-break {
+.word-wrap {
     /* Used to properly word-wrap text on overflow. */
     overflow-wrap: break-word;
     word-wrap: break-word;
