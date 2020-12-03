@@ -22,7 +22,7 @@ Matching CSS:
 For now, all styles will be applied with classes (even if they're only a singular element).  Classes in CSS will be ordered like so on an element:
 
 ```
-<element class="native-tag lexicographical-global1 lexicographical-global2...">
+<element class="native-tag1 native-tag2 lexicographical-global1 lexicographical-global2...">
 ```
 
 The "native-tag" is the className on the direct-template stylesheet.  For example (Taken from `/templates/twitter/navbar/navbar_macros.html`):
