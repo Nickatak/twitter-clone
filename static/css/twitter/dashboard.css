@@ -4,6 +4,7 @@
 =============================================================================================
 Table of contents:
     1. Global/Override styles.
+    2. Page banner styles.
 =============================================================================================
 */
 
@@ -22,3 +23,33 @@ Table of contents:
     .col
     .twitter-content-divider
 */
+
+/*
+=============================================================================================
+2. Page banner styles.
+=============================================================================================
+*/
+
+.dashboard-banner-container {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    align-items: center;
+    padding: 0 15px;
+    border-bottom: 1px solid rgb(243, 244, 246);
+}
+
+    .dashboard-banner {
+        font-size: 19px;
+        font-weight: 800;
+    }
+
+    .dashboard-stars-link {
+        min-height: 37px;
+        min-width: 37px;
+        margin-left: auto;
+    }
+
+        .dashboard-stars {
+            height: 1.5em;
+        }

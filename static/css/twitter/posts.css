@@ -32,36 +32,14 @@ Table of contents:
 =============================================================================================
 */
 
-/* .add-new-post-container */
-    .add-new-post-header {
-        align-items: center;
-        padding: 0 15px;
-        border-bottom: 1px solid rgb(243, 244, 246);
-    }
-
-        .add-new-post-banner {
-            font-size: 19px;
-            font-weight: 800;
-        }
-
-        .add-new-post-stars-link {
-            min-height: 37px;
-            min-width: 37px;
-            margin-left: auto;
-        }
-
-            .add-new-post-stars {
-                height: 1.5em;
-            }
-
-    .add-new-post-form-container {
-        padding: 10px 15px;
-    }
+.add-new-post-form-container {
+    padding: 10px 15px;
+}
 
     .post-profile-container {
         margin-right: 10px;
     }
-    
+
         .post-profile-link {
             width: 49px;
             height: 49px;
@@ -96,7 +74,7 @@ Table of contents:
             color: white;
             border: 1px solid transparent;
         }
-        
+            
 /*
 =============================================================================================
 3. Individual Post styles.
