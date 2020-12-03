@@ -137,7 +137,7 @@ html, body {
 
 /*
 =============================================================================================
-3. Media query helpers.
+3. Media query helpers (for authorized pages).
     All of these are used ONLY for simple "display"/"don't display" control.
 
     I'm designing for a couple distinct ranges (based on just playing around with Twitter):
@@ -165,10 +165,6 @@ html, body {
 }
 
 .xlg {
-    display: none;
-}
-
-.dt {
     display: none;
 }
 
