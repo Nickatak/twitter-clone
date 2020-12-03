@@ -20,6 +20,7 @@ Table of contents:
 
 .page-content-wrapper {
     border-right: 1px solid rgb(243, 244, 246);
+    overflow-x: scroll;
 }
 
 /* From: /base.css
