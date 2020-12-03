@@ -60,27 +60,40 @@ Table of contents:
             border-bottom: 1px solid rgb(235, 238, 240);
         }
 
-        .add-new-post-form-submit {
-            margin-left: auto;
-            min-height: 37px;
-            padding: 0 15px;
+        .add-new-post-form-helpers-container {
+            align-items: center;
             margin-top: 10px;
-            font-weight: 700;
-            font-size: 15px;
-            cursor: pointer;
-            transition: background-color 0.2s;
         }
 
-        .add-new-post-form-submit:hover {
-            background-color: rgb(26, 145, 218);
-        }
+            .add-new-post-form-helpers-link {
+                width: 37px;
+                height: 37px;
+            }
 
-        .twitter-bg-color {
-            background-color: rgb(29, 161, 242);
-            color: white;
-            border: 1px solid transparent;
-        }
-            
+                .add-new-post-form-helpers-icon {
+                    height: 1.5em;
+                }
+
+            .add-new-post-form-submit {
+                margin-left: auto;
+                min-height: 37px;
+                padding: 0 15px;
+                font-weight: 700;
+                font-size: 15px;
+                cursor: pointer;
+                transition: background-color 0.2s;
+            }
+
+            .add-new-post-form-submit:hover {
+                background-color: rgb(26, 145, 218);
+            }
+
+            .twitter-bg-color {
+                background-color: rgb(29, 161, 242);
+                color: white;
+                border: 1px solid transparent;
+            }
+
 /*
 =============================================================================================
 3. Individual Post styles.
@@ -205,4 +218,3 @@ Table of contents:
                 .post-actions-count-display {
                     font-weight: 400;
                 }
-
