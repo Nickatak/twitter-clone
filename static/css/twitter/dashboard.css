@@ -205,12 +205,12 @@ Table of contents:
     padding-right: 35px;
 }
 .post-action-bar svg {
-    height: 1.25em;
+    height: 1.5em;
 }
 
 .post-action-bar a {
-    height: 35px;
-    width: 35px;
+    height: 38px;
+    width: 38px;
     justify-content: center;
     align-items: center;
 }
