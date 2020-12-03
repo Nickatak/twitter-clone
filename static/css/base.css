@@ -47,28 +47,33 @@ html, body {
 
 /*
 =============================================================================================
-2. Helper Styles.
+2. Helper Styles.  All of these styles are listed lexicographically, since they may appear in any template.
 =============================================================================================
 */
 
 .blue-background-color-hover:hover {
+    /* Used to apply a dark-blue background-color on-hover. */
     background-color: rgba(29, 161, 242, 0.1);
 }
 
 .center-content {
+    /* Used to center content in a flex-container. */
     justify-content: center;
     align-items: center;
 }
 
 .circle {
+    /* Used to apply a circle-shape dark-blue on-hover handler. */
     border-radius: 50%;
 }
 
 .col {
+    /* Used to control direction of content within a flex-container. */
     flex-direction: column;
 }
 
 .row {
+    /* Used to control direction of content within a flex-container. */
     flex-direction: row;
 }
 
@@ -78,11 +83,13 @@ html, body {
 }
 
 .twitter-fill-color-perma {
+    /* Used to "paint" SVG's with the twitter-blue fill color. */
     color: rgb(29,161,242);
     fill: currentColor;
 }
 
 .twitter-fill-color-hover:hover {
+    /* Used to apply a twitter-blue fill color on-hover. */
     color: rgb(29,161,242);
     fill: currentColor;
 }
