@@ -67,6 +67,12 @@ Table of contents:
             margin-top: 10px;
             font-weight: 700;
             font-size: 15px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .add-new-post-form-submit:hover {
+            background-color: rgb(26, 145, 218);
         }
 
         .twitter-bg-color {
