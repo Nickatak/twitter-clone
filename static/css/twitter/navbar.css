@@ -50,12 +50,12 @@ header {
         height: 1.9rem;
     }
 
-    .navbar-list {
+    .nav-list {
         margin: 0;
         padding: 0;
     }
 
-    .navbar-item {
+    .nav-item {
         padding: 5px 0;
     }
 

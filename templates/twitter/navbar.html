@@ -1,4 +1,6 @@
-{# Styles: /static/twitter/navbar.css #}
+{# Navigation bar component.
+    Styles: /static/twitter/navbar.css
+#}
 {% extends 'base.html' %}
 {% import "twitter/navbar_macros.html" as nav_macros with context %}
 
@@ -8,34 +10,34 @@
 {% endblock %}
 
 {% block content %}
-    <header id="navbar-wrapper" class="col">
+    <header class="col">
         <nav class="col">
-            <ul class="navbar-list col">
-                <li class="navbar-item">
+            <ul class="nav-list col">
+                <li class="nav-item">
                     {{ nav_macros.generate_twitter_bird_link(url_for('twitter.dashboard')) }}
                 </li>
-                <li class="navbar-item">
+                <li class="nav-item">
                     {{ nav_macros.generate_nav_home_link(url_for('twitter.dashboard')) }}
                 </li>
-                <li class="navbar-item">
+                <li class="nav-item">
                     {{ nav_macros.generate_nav_search_link(url_for('twitter.dashboard')) }}
                 </li>
-                <li class="navbar-item">
+                <li class="nav-item">
                     {{ nav_macros.generate_nav_notif_link(url_for('twitter.dashboard')) }}
                 </li>
-                <li class="navbar-item">
+                <li class="nav-item">
                     {{ nav_macros.generate_nav_message_link(url_for('twitter.dashboard')) }}
                 </li>
-                <li class="navbar-item">
+                <li class="nav-item">
                     {{ nav_macros.generate_nav_bookmark_link(url_for('twitter.dashboard')) }}
                 </li>
-                <li class="navbar-item">
+                <li class="nav-item">
                     {{ nav_macros.generate_nav_list_link(url_for('twitter.dashboard')) }}
                 </li>
-                <li class="navbar-item">
+                <li class="nav-item">
                     {{ nav_macros.generate_nav_profile_link(url_for('twitter.view_user', username=g.user.username)) }}
                 </li>
-                <li class="navbar-item">
+                <li class="nav-item">
                     {{ nav_macros.generate_nav_more_link(url_for('twitter.dashboard')) }}
                 </li>
             </ul>
