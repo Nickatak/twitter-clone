@@ -1,9 +1,9 @@
-/* Styles for the unauthorized-user splash page (auth/index.html) */
+/* Styles for the unauthorized-user splash page (/auth/index.html) */
 
 /*
 =============================================================================================
 Table of contents:
-    1. Global/Helper styles.
+    1. Global/Override styles.
     2. Call-to-action styles.
     3. Splash-banner styles.
     4. Action-buttons styles.
@@ -14,20 +14,20 @@ Table of contents:
 
 /*
 =============================================================================================
-1. Global/Helper styles.
+1. Global/Override styles.
 =============================================================================================
 */
 
-body {
-    line-height: 1.3125;
-    overflow-y: scroll;
-    overscroll-behavior-y: none;
+.flex-wrapper {
+    flex-direction: column;
 }
-
-.twitter-font {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-weight: 700;
-}
+/* From: /base.css
+    .center-content
+    .col
+    .pill-shape
+    .twitter-fill-color-perma
+    .twitter-font
+*/
 
 /*
 =============================================================================================
@@ -35,65 +35,51 @@ body {
 =============================================================================================
 */
 
-.call-to-action {
+.call-to-action-container {
     justify-content: center;
     padding: 15px;
-    /* TODO: Remove this once you're done building the page. */
     background-color: white;
     z-index: 1;
 }
 
-.call-to-action-content {
-    flex-direction: column;
-    max-width: 380px;
-}
+    .call-to-action {
+        max-width: 380px;
+    }
 
-.call-to-action-header {
-    display: inline;
-    line-height: 1.3125;
-    margin-top: 18px;
-    font-size: 28px;
-    overflow-wrap: break-word;
-}
+        .bird-logo {
+            align-self: flex-start;
+            height: 2.75rem;
+        }
 
-.call-to-action-slogan {
-    margin-top: 60px;
-    margin-bottom: 15px;
-    font-size: 14px;
+    .call-to-action-banner {
+        margin-top: 18px;
+        font-size: 28px;
+    }
 
-}
+    .call-to-action-slogan {
+        margin-top: 60px;
+        margin-bottom: 15px;
+    }
 
-.button {
-    min-width: 62px;
-    min-height: 37px;
-    margin-bottom: 15px;
-    justify-content: center;
-    align-items: center;
-    padding: 0 15px;
-    border-radius: 9999px;
-    text-decoration: none;
-    font-size: 14px;
-}
+    .action-link {
+        min-width: 62px;
+        min-height: 37px;
+        margin-bottom: 15px;
+        padding: 0 15px;
+        text-decoration: none;
+    }
 
-.blue-background {
-    background-color: rgb(29, 161, 242);
-    color: white;
-    border: 1px solid transparent;
-}
+        .twitter-bg-color {
+            background-color: rgb(29, 161, 242);
+            color: white;
+            border: 1px solid transparent;
+        }
 
-.transparent-background {
-    background-color: transparent;
-    color:  rgb(29, 161, 242);
-    border: 1px solid  rgb(29, 161, 242);
-}
-
-.bird-logo {
-    align-self: flex-start;
-    display: inline-block;
-    height: 2.75rem;
-    color: rgb(29, 161, 242);
-    fill: currentcolor;
-}
+        .transparent-bg-color {
+            background-color: white;
+            color: rgb(29, 161, 242);
+            border: 1px solid  rgb(29, 161, 242);
+        }
 
 /*
 =============================================================================================
@@ -101,52 +87,46 @@ body {
 =============================================================================================
 */
 
-.splash-banner {
+.splash-banner-container {
     padding: 15px;
     background-color: rgb(122, 204, 254);
     justify-content: center;
 }
 
-.splash-banner .background-bird {
-    display: inline-block;
-    height: 60vh;
-    position: absolute;
-    top: 33vh;
-    right: -10vh;
-    color: rgb(29, 161, 242);
-    fill: currentcolor;
-}
+    .background-bird {
+        display: inline-block;
+        height: 60vh;
+        position: absolute;
+        top: 28vh;
+        right: -10vh;
+    }
 
-.splash-text {
-    z-index: 1;
-    padding: 15px 0;
-    color: white;
-}
+    .splash-banner {
+        z-index: 1;
+        padding: 15px 0;
+        color: white;
+    }
 
-.bullet-points {
-    flex-direction: column;    
-}
+        .splash-bullet-point {
+            margin-bottom: 40px;
+            align-items: center;
+        }
 
-.point:nth-child(3) {
-    margin: 0;
-}
+        .splash-bullet-point:nth-child(3) {
+            margin: 0;
+        }
 
-.point {
-    margin-bottom: 40px;
-    align-items: center;
-}
+            .splash-bullet-point-icon {
+                height: 1.25em;
+                font-size: 24px;
+                fill: currentcolor;
+            }
 
-.point-icon {
-    height: 1.25em;
-    font-size: 24px;
-    fill: currentcolor;
-}
-
-.point-text {
-    margin-left: 15px;
-    line-height: 30px;
-    font-size: 18px;
-}
+            .splash-bullet-point-text {
+                margin-left: 15px;
+                line-height: 30px;
+                font-size: 19px;
+            }
 
 /*
 =============================================================================================
@@ -161,18 +141,12 @@ body {
     justify-content: center;
 }
 
-.action-button-container .button {
-    max-width: 180px;
-    flex-grow: 1;
-}
-
-.action-button-container .button:first-child {
-    margin-right: 10px;
-}
-
-.action-button-container .button:nth-child(2) {
-    margin-left: 10px;
-}
+    .action-button-container .action-link {
+        /* action-button-container "local" override for max-width. */
+        max-width: 180px;
+        flex-grow: 1;
+        margin: 0 10px;
+    }
 
 /*
 =============================================================================================
@@ -189,27 +163,20 @@ body {
     flex-direction: row;
 }
 
-.footer-nav-link {
-    padding-right: 14px;
-    font-weight: 400;
-    line-height: 18px;
-    font-size: 12px;
-    color: rgb(91, 112, 131);
-    cursor: pointer;
-    overflow-wrap: break-word;
-    margin: 5px 0;
-    text-decoration: none;
-}
+    .footer-nav-link {
+        padding-right: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        font-size: 12px;
+        color: rgb(91, 112, 131);
+        cursor: pointer;
+        overflow-wrap: break-word;
+        margin: 5px 0;
+        text-decoration: none;
+    }
 
 /*
 =============================================================================================
 6. TODO: Build media queries.
 =============================================================================================
 */
-
-@media only screen and (min-width: 343px) {
-    /* background-bird correction for call-to-action-header resizing. */
-    .splash-banner .background-bird {
-        top: 28vh;
-    }
-}

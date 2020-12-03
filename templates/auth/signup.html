@@ -8,64 +8,49 @@
 {% block title %}Sign up for Twitter{% endblock %}
 
 {% block header %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth/signup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth/login_signup.css') }}">
 {% endblock %}
 
 {% block content %}
-    <div class="form-container">
-        <svg viewBox="0 0 24 24" class="bird-logo"><g><path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"></path></g></svg>
-        <h1 class="form-header twitter-text">Create your account</h1>
-        <form action="{{ url_for('auth.signup') }}" method="POST" id="signup-form">
+    <div class="form-container col">
+        <svg viewBox="0 0 24 24" class="bird-logo twitter-fill-color-perma"><g><path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"></path></g></svg>
+        <h1 class="form-header twitter-font">Create your account</h1>
+        <form action="{{ url_for('auth.signup') }}" method="POST" class="form col">
             {{ form.hidden_tag() }}
             {% for field, messages in form.errors.items() %}
                 {% for msg in messages %}
-                    <p class="twitter-text error">{{ msg }}</p>
+                    <p class="form-error twitter-font">{{ msg }}</p>
                 {% endfor %}
             {% endfor %}
-            <div class="input-group">
-                <div>
-                    {{ form.name.label(class_="twitter-text") }}
-                    {{ form.name }}
-                </div>
+            <div class="form-input-container col">
+                    {{ form.name.label(class_="form-input-label twitter-font") }}
+                    {{ form.name(class_="form-input no-border no-outline twitter-font") }}
             </div>
-            <div class="input-group">
-                <div>
-                    {{ form.username.label(class_="twitter-text") }}
-                    {{ form.username }}
-                </div>
+            <div class="form-input-container col">
+                    {{ form.username.label(class_="form-input-label twitter-font") }}
+                    {{ form.username(class_="form-input no-border no-outline twitter-font") }}
             </div>
-            <div class="input-group">
-                <div>
-                    {{ form.email.label(class_="twitter-text") }}
-                    {{ form.email }}
-                </div>
+            <div class="form-input-container col">
+                    {{ form.email.label(class_="form-input-label twitter-font") }}
+                    {{ form.email(class_="form-input no-border no-outline twitter-font") }}
             </div>
-            <div class="input-group">
-                <div>
-                    {{ form.password.label(class_="twitter-text") }}
-                    {{ form.password }}
-                </div>
+            <div class="form-input-container col">
+                    {{ form.password.label(class_="form-input-label twitter-font") }}
+                    {{ form.password(class_="form-input no-border no-outline twitter-font") }}
             </div>
-
-            <div class="input-group">
-                <div>
-                    {{ form.month.label(class_="twitter-text") }}
-                    {{ form.month }}
-                </div>
+            <div class="form-input-container col">
+                    {{ form.month.label(class_="form-input-label twitter-font") }}
+                    {{ form.month(class_="form-input no-border no-outline twitter-font") }}
             </div>
-            <div class="input-group">
-                <div>
-                    {{ form.day.label(class_="twitter-text") }}
-                    {{ form.day }}
-                </div>
+            <div class="form-input-container col">
+                    {{ form.day.label(class_="form-input-label twitter-font") }}
+                    {{ form.day(class_="form-input no-border no-outline twitter-font") }}
             </div>
-            <div class="input-group">
-                <div>
-                    {{ form.year.label(class_="twitter-text") }}
-                    {{ form.year }}
-                </div>
+            <div class="form-input-container col">
+                    {{ form.year.label(class_="form-input-label twitter-font") }}
+                    {{ form.year(class_="form-input no-border no-outline twitter-font") }}
             </div>
-            <button type="submit" class="button blue-background twitter-text">Sign up</button>
+            <button type="submit" class="form-submit center-content no-outline pill-shape twitter-bg-color twitter-font">Sign up</button>
         </form>
     </div>
 {% endblock %}

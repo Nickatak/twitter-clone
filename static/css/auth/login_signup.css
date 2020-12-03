@@ -1,0 +1,126 @@
+/* Styles for the unauthorized-user login page and signup page (/auth/login.html and /auth/signup.html) */
+
+/*
+=============================================================================================
+Table of contents:
+    1. Global/Override styles.
+    2. Login form styles.
+    3. Links styles.
+=============================================================================================
+*/
+
+/*
+=============================================================================================
+1. Global/Override styles.
+=============================================================================================
+*/
+
+.flex-wrapper {
+    justify-content: center;
+}
+
+/* From: /base.css
+    .center-content
+    .col
+    .no-border
+    .no-outline
+    .pill-shape
+    .twitter-fill-color-perma
+    .twitter-font
+*/
+
+/*
+=============================================================================================
+2. Login form styles.
+=============================================================================================
+*/
+
+.form-container {
+    margin-top: 20px;
+    padding: 0 15px;
+    width: 100%;
+    align-items: center;
+    max-width: 600px;
+}
+
+    .form-error {
+        margin: 0;
+        color: rgb(224, 36, 94);
+        font-size: 15px;
+        font-weight: 400;
+    }
+
+    .bird-logo {
+        height: 40px;
+    }
+
+    .form-header {
+        font-size: 23px;
+        margin: 30px 0 10px 0;
+    }
+
+    .form {
+        align-self: stretch;
+    }
+
+        .form-input-container {
+            align-self: stretch;
+            padding: 10px 15px;
+            font-size: 20px;
+            background-clip: content-box;
+            background-color: rgb(247, 249, 250);
+        }
+
+                .form-input-label {
+                    color: rgb(91, 112, 131);
+                    font-size: 15px;
+                    padding: 5px 10px 0 10px;
+                    font-weight: 400;
+                }
+
+                .form-input {
+                    padding: 2px 10px 5px 10px;
+                    background-color: transparent;
+                    border-bottom: 2px solid rgb(91, 112, 131);
+                    font-size: 19px;
+                    font-weight: 400;
+                }
+
+                .form-input:focus {
+                    background-color: rgb(232, 240, 254);
+                }
+
+                .form-submit {
+                    min-width: 62px;
+                    min-height: 49px;
+                    margin: 10px;
+                    padding: 0 15px;
+                    font-size: inherit;
+                }
+
+                .twitter-bg-color {
+                    background-color: rgb(29, 161, 242);
+                    color: white;
+                    border: 1px solid transparent;
+                }
+
+/*
+=============================================================================================
+3. Links styles.
+=============================================================================================
+*/
+
+.links-container {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 15px;
+}
+
+    .link {
+        font-weight: 400;
+        color: rgb(27, 149, 224);
+    }
+
+    .links-divider {
+        padding: 0 5px;
+    }
