@@ -14,8 +14,17 @@ Table of contents:
 =============================================================================================
 */
 
-
-/**/
+/* From: /base.css
+    .blue-background-color-hover
+    .center-content
+    .circle
+    .col
+    .no-border
+    .no-outline
+    .pill-shape
+    .twitter-fill-color-perma
+    .twitter-font
+*/
 
 /*
 =============================================================================================
@@ -23,8 +32,7 @@ Table of contents:
 =============================================================================================
 */
 
-/* .add-new-post-container is the root element for the Add New Post Form. */
-
+/* .add-new-post-container */
     .add-new-post-header {
         align-items: center;
         padding: 0 15px;
@@ -36,7 +44,7 @@ Table of contents:
             font-weight: 800;
         }
 
-        .add-new-post-stars-container {
+        .add-new-post-stars-link {
             min-height: 37px;
             min-width: 37px;
             margin-left: auto;
@@ -50,16 +58,16 @@ Table of contents:
         padding: 10px 15px;
     }
 
-    .add-new-post-form-profile-container {
+    .post-profile-container {
         margin-right: 10px;
     }
     
-        .add-new-post-form-profile-link {
+        .post-profile-link {
             width: 49px;
             height: 49px;
         }
 
-            .add-new-post-form-profile-img {
+            .post-profile-img {
                 width: 49px;
                 height: 49px;
             }
@@ -94,3 +102,93 @@ Table of contents:
 3. Individual Post styles.
 =============================================================================================
 */
+
+.post {
+    border-bottom: 1px solid rgb(243, 244, 246);
+    padding: 15px;
+}
+
+/* Borrowed from #2 above:
+    .post-profile-container {
+        margin-right: 10px;
+    }
+    
+        .post-profile-link {
+            width: 49px;
+            height: 49px;
+        }
+
+            .post-profile-img {
+                width: 49px;
+                height: 49px;
+            }
+*/
+
+    .post-main-container {
+        flex: 1;
+    }
+
+        .post-header-container {
+            font-size: 15px;
+            max-height: 20px;
+            align-items: center;
+        }
+
+            /* .post-header-user-link */
+                .post-header-name-display {
+                    color: black;
+                }
+
+                .post-header-name-display:hover {
+                    text-decoration: underline;
+                }
+
+                .post-header-username-display {
+                    color: rgb(91, 112, 131);
+                    font-weight: 400;
+                    margin-left: 5px;
+                }
+
+                .post-header-divider {
+                    padding: 0 5px;
+                }
+
+            .post-header-post-link {
+                color: rgb(91, 112, 131);
+            }
+
+                .post-header-time-display:hover {
+                    text-decoration: underline;
+                }
+
+
+            .post-header-dots-link {
+                margin-left: auto;
+                width: 34px;
+                height: 34px;
+            }
+
+                .post-header-dots {
+                    height: 1.25em;
+                }
+
+        .post-content {
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .post-actions-container {
+            justify-content: space-between;
+            padding-right: 35px;
+            margin-top: 10px;
+        }
+
+            /* .post-actions-link */
+                .post-actions-icon-container {
+                    height: 38px;
+                    width: 38px;
+                }
+
+                    .post-actions-icon {
+                        height: 1.5em;
+                    }

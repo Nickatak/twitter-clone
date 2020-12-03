@@ -4,8 +4,6 @@
 =============================================================================================
 Table of contents:
     1. Global/Override styles.
-    2. Add Post Form styles.
-    3. Post container/Posts styles.
 =============================================================================================
 */
 
@@ -17,114 +15,10 @@ Table of contents:
 
 .page-content-wrapper {
     flex-direction: column;
+    flex-shrink: 1;
 }
 
 /* From: /base.css
-    .twitter-font
+    .col
     .twitter-content-divider
 */
-
-/*
-=============================================================================================
-2. Add Post Form styles.
-=============================================================================================
-*/
-
-/*
-=============================================================================================
-3. Post/post container styles.
-=============================================================================================
-*/
-
-.post-container {
-    flex-direction: column;
-
-}
-
-.post {
-    border: 1px solid rgb(243, 244, 246);
-    padding: 15px;
-}
-
-
-.post-profile-container {
-    min-height: 80px;
-    text-overflow: ellipsis;
-}
-
-.post-text-header {
-    font-size: 15px;
-    max-height: 20px;
-}
-
-.post-profile-link {
-    align-self: flex-start;
-    text-decoration: none;
-    align-items: flex-end;
-    color: rgb(91, 112, 131);
-}
-
-.post-profile-link span:first-child {
-    font-weight: 700;
-    color: black;
-}
-.post-profile-link span:first-child:hover {
-    text-decoration: underline;
-}
-
-.twitter-username {
-    font-weight: 400;
-    margin-left: 5px;
-}
-
-.twitter-username:hover {
-    text-decoration: none;
-}
-
-.post-time-divider {
-    padding: 0 5px;
-}
-
-.post-icon-container {
-    margin-left: auto;
-    width: 34px;
-    height: 34px;
-    justify-content: flex-start;
-    align-items: center;
-    justify-content: center;
-}
-
-.post-icon-container:hover {
-    background-color: rgba(29, 161, 242, 0.1);
-}
-
-.post-icon-container svg {
-    height: 1.25em;
-}
-
-.post-text-container {
-    flex-direction: column;
-    flex: 1;
-}
-
-.post-text-header {
-    align-items: center;
-}
-.post-action-bar {
-    justify-content: space-between;
-    padding-right: 35px;
-}
-.post-action-bar svg {
-    height: 1.5em;
-}
-
-.post-action-bar a {
-    height: 38px;
-    width: 38px;
-    justify-content: center;
-    align-items: center;
-}
-
-.post-action-bar a:hover {
-    background-color: rgba(29, 161, 242, 0.1);
-}
