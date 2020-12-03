@@ -38,7 +38,7 @@ Table of contents:
 =============================================================================================
 */
 
-header {
+.nav-container {
     align-items: center;
     min-height: 100%;
     min-width: 68px;
@@ -49,6 +49,10 @@ header {
     max-width: 200px;
     */
 }
+
+    .bird-logo {
+        height: 2rem;
+    }
 
     .nav-icon {
         height: 1.8rem;
