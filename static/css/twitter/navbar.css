@@ -10,25 +10,12 @@ Table of contents:
 
 /*
 =============================================================================================
-1. Global/Helper styles.
+1. Global/Helper override styles.
 =============================================================================================
 */
 
 .flex-wrapper {
     flex-direction: row;
-}
-
-.circle {
-    border-radius: 50%;
-}
-
-.twitter-bird {
-    color: rgb(29,161,242);
-    fill: currentColor;
-}
-
-.col {
-    flex-direction: column;
 }
 
 /*
@@ -50,12 +37,10 @@ header {
 }
 
     .nav-icon {
-        flex-grow: 1;
         height: 1.9rem;
     }
 
-    #navbar-list {
-        flex-direction:column;
+    .navbar-list {
         margin: 0;
         padding: 0;
     }
@@ -65,59 +50,37 @@ header {
     }
 
         .nav-icon-container {
-            justify-content: center;
-            align-items: center;
             min-width: 49px;
             min-height: 49px;
             transition: background-color 0.2s;
         }
 
-        .nav-icon-container:hover { 
-            background-color: rgba(29, 161, 242, 0.1);
-            fill: rgb(29,161,242);
-        }
-
-        .nav-add-new-post-link {
-            justify-content: center;
-            align-items: center;
-            min-height: 49px;
-            min-width: 49px;
-            margin-top: 15px;
-            background-color: rgb(29, 161, 242);
-            fill: white;
-            transition: background-color 0.2s;
-        }
+    .nav-add-new-post-link {
+        min-height: 49px;
+        min-width: 49px;
+        margin-top: 15px;
+        background-color: rgb(29, 161, 242);
+        fill: white;
+        transition: background-color 0.2s;
+    }
 
         .nav-add-new-post-link:hover {
             background-color: rgb(26, 145, 218);
         }
 
-.sign-out-form {
-    min-width: 59px;
-    min-height: 59px;
-    margin-top: auto;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-    .sign-out-form:hover { 
-        background-color: rgba(29, 161, 242, 0.1);
-        border-radius: 50%;
-        fill: rgb(29,161,242);
+    .sign-out-form {
+        min-width: 59px;
+        min-height: 59px;
+        margin-top: auto;
+        margin-bottom: 10px;
     }
 
-    .sign-out-button {
-        border: none;
-        background-color: transparent;
-    }
+        .sign-out-button {
+            border: none;
+            background-color: transparent;
+        }
 
-#profile-img {
-    width: 39px;
-    height: 39px;
-}
-
-.page-content-wrapper {
-    flex-grow: 1;
-    max-width: 600px;
-}
+            .sign-out-image {
+                width: 39px;
+                height: 39px;
+            }

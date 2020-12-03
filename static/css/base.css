@@ -3,13 +3,14 @@
 /*
 =============================================================================================
 Table of contents:
-    1. Global Styles.
+    1. Global styles.
+    2. Helper styles.
 =============================================================================================
 */
 
 /*
 =============================================================================================
-1. Global Styles.
+1. Global styles.
 =============================================================================================
 */
 
@@ -37,4 +38,51 @@ html, body {
 
 .flex-wrapper * {
     display: flex;
+}
+
+.page-content-wrapper {
+    flex-grow: 1;
+    max-width: 600px;
+}
+
+/*
+=============================================================================================
+2. Helper Styles.
+=============================================================================================
+*/
+
+.blue-background-color-hover:hover {
+    background-color: rgba(29, 161, 242, 0.1);
+}
+
+.center-content {
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.no-outline {
+    /* Used to remove outline style on <button> elements. */
+    outline: none;
+}
+
+.twitter-fill-color-perma {
+    color: rgb(29,161,242);
+    fill: currentColor;
+}
+
+.twitter-fill-color-hover:hover {
+    color: rgb(29,161,242);
+    fill: currentColor;
 }
