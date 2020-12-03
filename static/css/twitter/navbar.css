@@ -14,15 +14,6 @@ Table of contents:
 =============================================================================================
 */
 
-.flex-wrapper {
-    flex-direction: row;
-}
-
-.page-content-wrapper {
-    border-right: 1px solid rgb(243, 244, 246);
-    overflow-x: scroll;
-}
-
 /* From: /base.css
     .blue-background-color-hover
     .center-content

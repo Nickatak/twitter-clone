@@ -17,6 +17,7 @@ Table of contents:
 .page-content-wrapper {
     flex-direction: column;
     flex-shrink: 1;
+    border-right: 1px solid rgb(243, 244, 246);
 }
 
 /* From: /base.css
