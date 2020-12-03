@@ -5,6 +5,7 @@
 Table of contents:
     1. Global styles.
     2. Helper styles.
+    3. Media query helpers.
 =============================================================================================
 */
 
@@ -132,4 +133,65 @@ html, body {
     word-wrap: break-word;
     word-break: break-all;
     word-break: break-word;
+}
+
+/*
+=============================================================================================
+3. Media query helpers.
+    All of these are used ONLY for simple "display"/"don't display" control.
+
+    I'm designing for a couple distinct ranges (based on just playing around with Twitter):
+        1. 320px - 499px => .sm
+        2. 500px - 617px => .md
+        3. 618px - 1004px => .lg
+        4. 1004px - 1281px => .xlg
+        5. 1281px+ (No class required, as there's no upper boundary)
+
+        Anything tagged with these classes will be HIDDEN until the upper-boundary is reached.
+        EG : `<div class="sm">` will be hidden until the browser reaches 499px.
+=============================================================================================
+*/
+
+.sm {
+    display: none;
+}
+
+.md {
+    display: none;
+}
+
+.lg {
+    display: none;
+}
+
+.xlg {
+    display: none;
+}
+
+.dt {
+    display: none;
+}
+
+@media only screen and (min-width: 499px) {
+    .sm {
+        display: flex;
+    }
+}
+
+@media only screen and (min-width: 617px) {
+    .md {
+        display: flex;
+    }
+}
+
+@media only screen and (min-width: 1004px) {
+    .lg {
+        display: flex;
+    }
+}
+
+@media only screen and (min-width: 1281px) {
+    .xlg {
+        display: flex;
+    }
 }
