@@ -22,7 +22,7 @@ Table of contents:
     flex-direction: column;
 }
 
-.fs-column-wrapper {
+.fs-col-wrapper {
     flex-direction: column;
 }
 
@@ -195,6 +195,7 @@ Table of contents:
         flex-direction: row-reverse;
         flex-grow: 1;
     }
+
         .call-to-action-container {
             width: 50%;
 
