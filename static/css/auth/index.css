@@ -21,6 +21,11 @@ Table of contents:
 .flex-wrapper {
     flex-direction: column;
 }
+
+.fs-column-wrapper {
+    flex-direction: column;
+}
+
 /* From: /base.css
     .center-content
     .col
@@ -91,13 +96,17 @@ Table of contents:
     padding: 15px;
     background-color: rgb(122, 204, 254);
     justify-content: center;
+
+    /* Eliminate the overflow of the .background-bird svg. */
+    position: relative;
+    overflow: hidden;
 }
 
     .background-bird {
         display: inline-block;
-        height: 60vh;
         position: absolute;
-        top: 28vh;
+        height: 60vh;
+        top: -10vh;
         right: -10vh;
     }
 
@@ -170,7 +179,6 @@ Table of contents:
         font-size: 12px;
         color: rgb(91, 112, 131);
         cursor: pointer;
-        overflow-wrap: break-word;
         margin: 5px 0;
         text-decoration: none;
     }
@@ -182,39 +190,32 @@ Table of contents:
 */
 
 @media only screen and (min-width: 800px) {
-    .flex-wrapper {
+
+    .fs-column-wrapper {
         flex-direction: row-reverse;
-        flex-wrap: wrap;
+        flex-grow: 1;
     }
+        .call-to-action-container {
+            width: 50%;
 
-    .call-to-action-container {
-        width: 50%;
-        min-height: 90vh;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .splash-banner-container {
-        width: 50%;
-        min-height: 90vh;
-        flex-direction: column;
-        align-items: center;
-    }
-
-        .background-bird {
-            top: -35vh;
-            left: -50%;
-            height: 180vh;
-            margin-right: auto;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
         }
 
-    .action-button-container {
-        display: none;
-    }
+        .splash-banner-container {
+            width: 50%;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    .footer-nav {
-        flex: 1;
-        max-height:10vh;
-    }
+            .background-bird {
+                height: 160vh;
+                top: -30vh;
+                right: -50vh;
+            }
+
+        .action-button-container {
+            display: none;
+        }
 }
