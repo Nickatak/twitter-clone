@@ -191,7 +191,7 @@ Table of contents:
 
 @media only screen and (min-width: 800px) {
 
-    .fs-column-wrapper {
+    .fs-col-wrapper {
         flex-direction: row-reverse;
         flex-grow: 1;
     }
