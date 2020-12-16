@@ -69,4 +69,6 @@ def view_user(username):
 
     user = User.get_by_username_or_404(username)
 
-    return render_template('twitter/profile.html', user=user)
+    all_posts = Post.query.all()
+
+    return render_template('twitter/profile.html', user=user, all_posts=all_posts)

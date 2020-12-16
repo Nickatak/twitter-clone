@@ -142,7 +142,6 @@ Table of contents:
 
                 .post-header-username-display {
                     color: rgb(91, 112, 131);
-                    font-weight: 400;
                     margin-left: 5px;
                 }
 
@@ -172,7 +171,6 @@ Table of contents:
 
         .post-content {
             margin: 0;
-            font-weight: 400;
         }
 
         .post-actions-container {
@@ -216,5 +214,4 @@ Table of contents:
                     }
 
                 .post-actions-count-display {
-                    font-weight: 400;
                 }
