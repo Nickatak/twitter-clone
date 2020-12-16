@@ -223,7 +223,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         # The first element in our validators will always be `DataRequired()`
@@ -245,7 +245,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         # The first element in our validators will always be `DataRequired()`
@@ -268,7 +268,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         # The first element in our validators will always be `DataRequired()`
@@ -290,7 +290,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         # The first element in our validators will always be `DataRequired()`
@@ -313,7 +313,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         # The first element in our validators will always be `DataRequired()`
@@ -335,7 +335,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         # The first element in our validators will always be `DataRequired()`
@@ -357,7 +357,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         # The first element in our validators will always be `DataRequired()`
@@ -383,7 +383,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents(
@@ -428,7 +428,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents(
@@ -449,7 +449,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents(
@@ -470,7 +470,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents(
@@ -491,7 +491,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents(
@@ -512,7 +512,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents(
@@ -533,7 +533,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents(
@@ -554,7 +554,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents(
@@ -575,7 +575,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents(
@@ -596,7 +596,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents(
@@ -617,7 +617,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents(
@@ -638,7 +638,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents(
@@ -659,7 +659,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents(
@@ -680,7 +680,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents(
@@ -701,7 +701,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents(
@@ -722,7 +722,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents(
@@ -743,7 +743,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents(
@@ -764,7 +764,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents(
@@ -785,7 +785,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents(
@@ -806,7 +806,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents(
@@ -827,7 +827,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents(
@@ -856,7 +856,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 2
         assert errors[0].decode_contents(
@@ -878,7 +878,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents() == 'Email must be valid.'
@@ -898,7 +898,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents() == 'Email must be valid.'
@@ -918,7 +918,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         assert errors[0].decode_contents() == 'Email must be valid.'
@@ -948,7 +948,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                                data=invalid_data, follow_redirects=True)
             html = BeautifulSoup(resp.data, 'html.parser')
 
-            errors = html.find_all('p', {'class': 'form-error twitter-font'})
+            errors = html.find_all('p', {'class': 'form-error'})
 
             assert len(errors) == 1
             assert errors[0].decode_contents() == 'Username must be unique.'
@@ -978,7 +978,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                                data=invalid_data, follow_redirects=True)
             html = BeautifulSoup(resp.data, 'html.parser')
 
-            errors = html.find_all('p', {'class': 'form-error twitter-font'})
+            errors = html.find_all('p', {'class': 'form-error'})
 
             assert len(errors) == 1
             assert errors[0].decode_contents() == 'Email must be unique.'

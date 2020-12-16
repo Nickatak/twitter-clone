@@ -47,7 +47,6 @@ Table of contents:
         margin: 0;
         color: rgb(224, 36, 94);
         font-size: 15px;
-        font-weight: 400;
     }
 
     .bird-logo {
@@ -75,7 +74,6 @@ Table of contents:
                     color: rgb(91, 112, 131);
                     font-size: 15px;
                     padding: 5px 10px 0 10px;
-                    font-weight: 400;
                 }
 
                 .form-input {
@@ -83,7 +81,6 @@ Table of contents:
                     background-color: transparent;
                     border-bottom: 2px solid rgb(91, 112, 131);
                     font-size: 19px;
-                    font-weight: 400;
                 }
 
                 .form-input:focus {
