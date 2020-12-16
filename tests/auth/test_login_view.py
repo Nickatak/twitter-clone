@@ -211,7 +211,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         # The first element in our validators will always be `DataRequired()`
@@ -236,7 +236,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                            data=invalid_data, follow_redirects=True)
         html = BeautifulSoup(resp.data, 'html.parser')
 
-        errors = html.find_all('p', {'class': 'form-error twitter-font'})
+        errors = html.find_all('p', {'class': 'form-error'})
 
         assert len(errors) == 1
         # The first element in our validators will always be `DataRequired()`
@@ -262,7 +262,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                                data=invalid_data, follow_redirects=True)
             html = BeautifulSoup(resp.data, 'html.parser')
 
-            errors = html.find_all('p', {'class': 'form-error twitter-font'})
+            errors = html.find_all('p', {'class': 'form-error'})
 
             assert len(errors) == 1
             # The first element in our validators will always be
@@ -280,7 +280,7 @@ class TestFormValidationBehavior(CleanTestingMixin):
                                data=invalid_data, follow_redirects=True)
             html = BeautifulSoup(resp.data, 'html.parser')
 
-            errors = html.find_all('p', {'class': 'form-error twitter-font'})
+            errors = html.find_all('p', {'class': 'form-error'})
 
             assert len(errors) == 1
             # The first element in our validators will always be
