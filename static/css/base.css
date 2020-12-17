@@ -85,6 +85,11 @@ html, body {
     flex-direction: column;
 }
 
+.grey-fill-perma {
+    color: rgb(136, 153, 166);
+    fill: currentColor;
+}
+
 .no-border {
     /* Used to remove borders on <button>/<input> elements. */
     border: none;

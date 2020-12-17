@@ -30,7 +30,7 @@
             <div class="header-info">
                 <span class="bold profile-header-info-username">{{ user.name }}</span>
 
-                <span class="grey profile-header-info-tweet-number">{{ user.posts|length }} Tweets</span>
+                <span class="grey-fill-perma profile-header-info-tweet-number">{{ user.posts|length }} Tweets</span>
             </div>
         </div>
 
@@ -65,11 +65,11 @@
 
                     {# Username #}
                     <div class="profile-bio-info-username">
-                        <span class="grey">@{{ user.username }}</span>
+                        <span class="grey-fill-perma">@{{ user.username }}</span>
                     </div>
 
                     {# User creation date (TODO: Implement creation date in DB and here) #}
-                    <div class="grey profile-bio-info-creation">
+                    <div class="grey-fill-perma profile-bio-info-creation">
                         <div class="profile-bio-info-creation-calendar">
                             <svg viewBox="0 0 24 24"><g><path d="M19.708 2H4.292C3.028 2 2 3.028 2 4.292v15.416C2 20.972 3.028 22 4.292 22h15.416C20.972 22 22 20.972 22 19.708V4.292C22 3.028 20.972 2 19.708 2zm.792 17.708c0 .437-.355.792-.792.792H4.292c-.437 0-.792-.355-.792-.792V6.418c0-.437.354-.79.79-.792h15.42c.436 0 .79.355.79.79V19.71z"></path><circle cx="7.032" cy="8.75" r="1.285"></circle><circle cx="7.032" cy="13.156" r="1.285"></circle><circle cx="16.968" cy="8.75" r="1.285"></circle><circle cx="16.968" cy="13.156" r="1.285"></circle><circle cx="12" cy="8.75" r="1.285"></circle><circle cx="12" cy="13.156" r="1.285"></circle><circle cx="7.032" cy="17.486" r="1.285"></circle><circle cx="12" cy="17.486" r="1.285"></circle></g></svg>
                         </div>
@@ -83,7 +83,7 @@
                         <div class="profile-bio-info-relations-following">
                             <a href="#">
                                 <span class="bold profile-bio-info-relations-number">1231</span>
-                                <span class="grey">Following</span>
+                                <span class="grey-fill-perma">Following</span>
                             </a>
                         </div>
 
@@ -91,7 +91,7 @@
                         <div class="profile-bio-info-relations-followers">
                             <a href="#">
                                 <span class="bold profile-bio-info-relations-number">78345</span>
-                                <span class="grey">Followers</span>
+                                <span class="grey-fill-perma">Followers</span>
                             </a>
                         </div>
                     </div>
