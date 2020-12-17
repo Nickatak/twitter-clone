@@ -19,6 +19,7 @@ Table of contents:
     .center-content
     .circle
     .col
+    .grey-fill-perma
     .no-border
     .no-outline
     .pill-shape
@@ -141,7 +142,6 @@ Table of contents:
                 }
 
                 .post-header-username-display {
-                    color: rgb(91, 112, 131);
                     margin-left: 5px;
                 }
 
@@ -149,10 +149,7 @@ Table of contents:
                     padding: 0 5px;
                 }
 
-            .post-header-post-link {
-                color: rgb(91, 112, 131);
-            }
-
+            /*.post-header-post-link */
                 .post-header-time-display:hover {
                     text-decoration: underline;
                 }
@@ -183,7 +180,6 @@ Table of contents:
             .post-actions-link {
                 align-items: center;
                 text-decoration: none;
-                color: rgb(91, 112, 131);
                 transition: color 0.2s;
             }
 
