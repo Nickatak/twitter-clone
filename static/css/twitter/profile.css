@@ -175,6 +175,9 @@ Table of contents:
         height: 50px;
         max-height: 50px;
     }
+        .profile-feed-selector a {
+            text-decoration: none;
+        }
 
         .profile-feed-selector-button {
             flex-grow: 1;
