@@ -42,7 +42,7 @@ Table of contents:
             margin-right: 15px;
         }
 
-            .header-back-arrow svg {
+            .header-back-arrow-icon {
                 width: 35px;
             }
 
@@ -74,11 +74,11 @@ Table of contents:
 }
 
     /* Profile background photo*/
-    .profile-background-photo {
+    .profile-background {
 
     }
 
-        .profile-background-photo img {
+        .profile-background-photo {
             max-width: 600px;
             max-height: 199.33px;
         }
@@ -152,7 +152,7 @@ Table of contents:
                     margin-right: .3em;
                 }
 
-                    .profile-bio-info-creation-calendar svg {
+                    .profile-bio-info-creation-calendar-icon {
                         width: 20px;
                     }
 
@@ -162,16 +162,16 @@ Table of contents:
                 white-space: pre-wrap;
             }
 
-                .profile-bio-info-relations a {
+                .profile-bio-info-relations-link {
                     text-decoration: none;
                 }
 
 
-                .profile-bio-info-relations a:hover {
+                .profile-bio-info-relations-link:hover {
                     text-decoration: underline black;
                 }
 
-                .profile-bio-info-relations a:active {
+                .profile-bio-info-relations-link:active {
                     text-decoration: underline black;
                 }
 
@@ -192,7 +192,7 @@ Table of contents:
         height: 50px;
         max-height: 50px;
     }
-        .profile-feed-selector a {
+        .profile-feed-selector-link {
             text-decoration: none;
         }
 
