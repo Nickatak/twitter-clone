@@ -9,6 +9,7 @@ htmlcov/
 #Utility scripts
 *.sh
 *.ps1
+*.bat
 
 # production
 /build
