@@ -12,9 +12,9 @@
     {# Include navbar #}
     {{ navbar_macros.generate_navbar() }}
 
-
-
     <div class="page-content-wrapper col">
+        {# Top-of-page anchor#}
+        <a name="top"></a>
 
         {# Sticky header bar #}
         <div class="header">
@@ -26,12 +26,14 @@
                 </div>
             </a>
 
-            {# Header info #}
-            <div class="header-info">
-                <span class="bold profile-header-info-username">{{ user.name }}</span>
+            {# Header info (Name/# of tweets), link back to top #}
+            <a class ="header-info" href="#top">
+                <div class="header-info-text">
+                    <span class="bold profile-header-info-text-username">{{ user.name }}</span>
 
-                <span class="grey-fill-perma profile-header-info-tweet-number">{{ user.posts|length }} Tweets</span>
-            </div>
+                    <span class="grey-fill-perma profile-header-info-text-tweet-number">{{ user.posts|length }} Tweets</span>
+                </div>
+            </a>
         </div>
 
         {# Profile #}
@@ -82,18 +84,14 @@
                         {# Following #}
                         <div class="profile-bio-info-relations-following">
                             <a href="#">
-                                <span class="bold profile-bio-info-relations-number">1231</span>
-                                &nbsp;
-                                <span class="grey-fill-perma">Following</span>
+                                <span class="grey-fill-perma"><span class="bold profile-bio-info-relations-number">1231</span> Following</span>
                             </a>
                         </div>
 
                         {# Followers #}
                         <div class="profile-bio-info-relations-followers">
                             <a href="#">
-                                <span class="bold profile-bio-info-relations-number">78345</span>
-                                &nbsp;
-                                <span class="grey-fill-perma">Followers</span>
+                                <span class="grey-fill-perma"><span class="bold profile-bio-info-relations-number">78345</span> Followers</span>
                             </a>
                         </div>
                     </div>

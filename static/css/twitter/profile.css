@@ -48,18 +48,23 @@ Table of contents:
 
         /* Header info (name/# of tweets) */
         .header-info {
-            flex-direction: column;
+            flex-grow: 1;
+            text-decoration: none;
         }
 
-            .profile-header-info-username {
-                font-size: 20px;
+            .header-info-text {
+                flex-direction: column;
             }
 
-            .profile-header-info-tweet-number {
-                font-size: 12px;
-                margin-top: 2px;
-            }
+                .profile-header-info-text-username {
+                    font-size: 20px;
+                    color: black;
+                }
 
+                .profile-header-info-text-tweet-number {
+                    font-size: 12px;
+                    margin-top: 2px;
+                }
 
 .profile {
     flex-grow: 1;
@@ -74,7 +79,7 @@ Table of contents:
     }
 
         .profile-background-photo img {
-            max-width: 598px;
+            max-width: 600px;
             max-height: 199.33px;
         }
 
@@ -154,6 +159,7 @@ Table of contents:
             .profile-bio-info-relations {
                 flex-grow: 1;
                 flex-direction: row;
+                white-space: pre-wrap;
             }
 
                 .profile-bio-info-relations a {
