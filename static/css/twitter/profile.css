@@ -66,9 +66,13 @@ Table of contents:
 
     /* Profile background photo*/
     .profile-background-photo {
-        max-width: 598px;
-        max-height: 199.33px;
+
     }
+
+        .profile-background-photo img {
+            max-width: 598px;
+            max-height: 199.33px;
+        }
 
     /* Profile picture */
     .profile-picture {
