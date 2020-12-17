@@ -42,6 +42,10 @@ Table of contents:
             margin-right: 15px;
         }
 
+            .header-back-arrow svg {
+                width: 35px;
+            }
+
         /* Header info (name/# of tweets) */
         .header-info {
             flex-direction: column;
@@ -142,6 +146,10 @@ Table of contents:
                     width: 20px;
                     margin-right: .3em;
                 }
+
+                    .profile-bio-info-creation-calendar svg {
+                        width: 20px;
+                    }
 
             .profile-bio-info-relations {
                 flex-grow: 1;
